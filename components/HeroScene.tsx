@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Cpu, Sparkles } from "lucide-react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import Image from "next/image";
+import { Sparkles } from "lucide-react";
 
 type HeroSceneProps = {
   role: string;
@@ -12,23 +13,13 @@ export default function HeroScene({ role, highlights }: HeroSceneProps) {
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
-  const rotateX = useSpring(useTransform(mouseY, [0, 1], [4, -4]), {
-    stiffness: 160,
-    damping: 24,
-  });
-  const rotateY = useSpring(useTransform(mouseX, [0, 1], [-4, 4]), {
-    stiffness: 160,
-    damping: 24,
-  });
-
-  const glowX = useTransform(mouseX, [0, 1], ["35%", "65%"]);
-  const glowY = useTransform(mouseY, [0, 1], ["35%", "65%"]);
+  const glowX = useTransform(mouseX, [0, 1], ["25%", "75%"]);
+  const glowY = useTransform(mouseY, [0, 1], ["20%", "80%"]);
 
   return (
-    <div className="relative h-[430px] sm:h-[520px] [perspective:1200px]">
+    <div className="relative min-h-[520px] [perspective:1200px] sm:min-h-[560px]">
       <motion.div
-        className="relative grid h-full grid-rows-[auto_1fr_auto] overflow-hidden rounded-[2rem] border border-zinc-800/90 bg-gradient-to-b from-zinc-900/80 to-zinc-950/85 p-5 [transform-style:preserve-3d] sm:p-7"
-        style={{ rotateX, rotateY }}
+        className="relative grid min-h-[520px] grid-rows-[auto_auto_auto] gap-4 overflow-hidden rounded-[2rem] border border-zinc-800/90 bg-gradient-to-b from-zinc-900/80 to-zinc-950/85 p-5 [transform-style:preserve-3d] sm:min-h-[560px] sm:p-7"
         onMouseMove={(event) => {
           const rect = event.currentTarget.getBoundingClientRect();
           mouseX.set((event.clientX - rect.left) / rect.width);
@@ -55,25 +46,24 @@ export default function HeroScene({ role, highlights }: HeroSceneProps) {
         </div>
 
         <div className="relative z-10 grid place-items-center">
-          <div className="relative h-48 w-48 rounded-full border border-zinc-700/70 bg-zinc-950/95 sm:h-56 sm:w-56">
-            <div className="grid h-full place-items-center">
-              <Cpu className="h-10 w-10 text-zinc-200" />
+          <div className="relative aspect-[3/4] w-full max-w-[14rem] overflow-hidden rounded-3xl border border-zinc-700/70 bg-zinc-900/80 p-2 shadow-[0_16px_60px_rgba(0,0,0,0.4)] sm:max-w-[15rem]">
+            <div className="relative h-full w-full overflow-hidden rounded-[1.2rem] border border-zinc-800">
+              <Image
+                src="/vanika-portrait.jpg"
+                alt="Portrait of Vanika Sharma"
+                fill
+                priority
+                quality={100}
+                unoptimized
+                sizes="(min-width: 1024px) 256px, (min-width: 640px) 240px, 65vw"
+                className="object-cover object-top"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/55 via-transparent to-zinc-950/10" />
             </div>
-
-            <motion.div
-              className="absolute inset-[-18px] rounded-full border border-zinc-700/40"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.div
-              className="absolute inset-[-34px] rounded-full border border-zinc-700/25"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-            />
           </div>
         </div>
 
-        <div className="relative z-10 space-y-3">
+        <div className="relative z-10 space-y-2">
           <div className="rounded-xl border border-zinc-800 bg-zinc-950/80 p-3">
             <p className="text-[10px] uppercase tracking-[0.16em] text-zinc-500">Current Role</p>
             <p className="mt-1 text-xs leading-relaxed text-zinc-300">{role}</p>

@@ -3,7 +3,7 @@ import Backdrop from "@/components/Backdrop";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/lib/projects";
+import { orderedProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
         </header>
 
         <section className="mt-10 grid gap-4 md:grid-cols-2">
-          {projects.map((project) => (
+          {orderedProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </section>

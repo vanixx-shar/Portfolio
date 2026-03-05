@@ -213,4 +213,23 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.filter((project) => project.featured);
+function parsePrimaryYear(year: string): number {
+  if (year.toLowerCase() === "ongoing") return 9999;
+  const match = year.match(/\d{4}/);
+  return match ? Number(match[0]) : 0;
+}
+
+function compareProjectsByYear(a: Project, b: Project): number {
+  const yearA = parsePrimaryYear(a.year);
+  const yearB = parsePrimaryYear(b.year);
+
+  if (yearA !== yearB) {
+    return yearB - yearA;
+  }
+
+  return a.title.localeCompare(b.title);
+}
+
+export const orderedProjects = [...projects].sort(compareProjectsByYear);
+
+export const featuredProjects = orderedProjects.filter((project) => project.featured);

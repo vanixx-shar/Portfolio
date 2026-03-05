@@ -2,45 +2,45 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
-export default function ProjectCard({ p }: { p: Project }) {
+type ProjectCardProps = {
+  project: Project;
+};
+
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 260, damping: 18 }}
-      className="group rounded-2xl bg-zinc-900/60 ring-1 ring-zinc-800 p-6 hover:bg-zinc-900 transition relative overflow-hidden"
+    <motion.article
+      whileHover={{ y: -7 }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+      className="group relative overflow-hidden rounded-3xl border border-zinc-800/80 bg-zinc-900/55 p-6 shadow-[0_0_0_1px_rgba(24,24,27,0.6)]"
     >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition">
-        <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-      </div>
+      <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-zinc-200/10 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
 
-      <div className="relative">
-        <div className="text-xs text-zinc-500">{p.year}</div>
-        <div className="mt-1 text-lg font-semibold tracking-tight">{p.title}</div>
-        <div className="mt-2 text-sm text-zinc-300">{p.subtitle}</div>
-        <div className="mt-3 text-xs text-zinc-400">{p.highlight}</div>
+      <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{project.year}</p>
+      <h3 className="mt-3 text-xl font-semibold tracking-tight text-zinc-100">{project.title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-zinc-300">{project.subtitle}</p>
+      <p className="mt-4 text-sm font-medium text-zinc-200">{project.highlight}</p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {p.tags.map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-zinc-950 px-3 py-1 text-xs text-zinc-300 ring-1 ring-zinc-800"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-6">
-          <Link
-            href={`/projects/${p.slug}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-200 hover:text-white"
+      <div className="mt-5 flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full border border-zinc-800 bg-zinc-950/80 px-3 py-1 text-xs text-zinc-300"
           >
-            View case study <span className="text-zinc-500">↗</span>
-          </Link>
-        </div>
+            {tag}
+          </span>
+        ))}
       </div>
-    </motion.div>
+
+      <Link
+        href={`/projects/${project.slug}`}
+        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-100 transition hover:text-white"
+      >
+        View case study
+        <ArrowUpRight className="h-4 w-4" />
+      </Link>
+    </motion.article>
   );
 }

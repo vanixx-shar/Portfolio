@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Home, Layers3 } from "lucide-react";
+import { ArrowUpRight, Home, Layers3, Linkedin } from "lucide-react";
 import { profile } from "@/lib/profile";
 
 const navLinkClass =
@@ -28,6 +28,15 @@ export default function Navbar() {
             <Layers3 className="h-4 w-4" />
             Projects
           </Link>
+          <a
+            href={profile.linkedinUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={navLinkClass}
+          >
+            <Linkedin className="h-4 w-4" />
+            LinkedIn
+          </a>
           <Link
             href={profile.resumePath}
             className="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-zinc-100 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-white"

@@ -8,69 +8,84 @@ export type Project = {
   problem: string;
   solution: string;
   impact: string[];
-  links?: { label: string; href: string }[];
 };
 
 export const projects: Project[] = [
   {
     slug: "solar-aeroponics-windmill",
     title: "Solar Aeroponics Windmill System",
-    subtitle: "Sustainable energy + aeroponics to improve crop efficiency",
+    subtitle: "Sustainable energy + aeroponics prototype (Merit Award)",
     year: "2022",
-    tags: ["Sustainability", "Systems", "Prototype"],
-    highlight: "Merit Award — Engineering Innovation Challenge",
+    tags: ["Sustainability", "Prototype", "Systems"],
+    highlight: "Merit Award — Engineering Innovation Challenge (EIC)",
     problem:
-      "Traditional farming can be resource-intensive. The goal was to explore a cleaner, more efficient approach to production using renewable energy.",
+      "Agriculture can be resource-intensive. The goal was to explore a cleaner, more efficient approach using renewable energy and aeroponics.",
     solution:
-      "Designed a concept system combining aeroponics with renewable power generation and modular design for scalability and maintenance.",
+      "Designed a concept system integrating aeroponics with renewable power generation and modular design for scalability and maintainability.",
     impact: [
-      "Recognized with Merit at the Engineering Innovation Challenge",
-      "Demonstrated feasibility of integrating energy + agriculture concepts",
+      "Merit recognition at EIC",
+      "Demonstrated feasibility of integrated energy + agriculture system concepts",
     ],
   },
   {
     slug: "license-plate-video-analytics",
     title: "License Plate Video Analytics System",
-    subtitle: "Computer vision pipeline for detection + analytics",
+    subtitle: "Computer vision pipeline for detection + analytics (Merit Award)",
     year: "2022",
     tags: ["Computer Vision", "AI", "Video Analytics"],
-    highlight: "Merit Award — Engineering Innovation Challenge",
+    highlight: "Merit Award — Engineering Innovation Challenge (EIC)",
     problem:
-      "Manual vehicle identification is slow and error-prone in operational environments where speed and accuracy matter.",
+      "Manual vehicle identification is slow and error-prone where speed and accuracy are critical.",
     solution:
-      "Designed a pipeline for video ingestion → plate detection → text extraction → analytics, with practical deployment constraints in mind.",
+      "Designed a pipeline for video ingestion → plate detection → extraction → analytics, aligned with real-world constraints.",
     impact: [
-      "Merit award recognition",
+      "Merit recognition at EIC",
       "Designed as an operationally realistic concept system",
+    ],
+  },
+  {
+    slug: "dynamic-reconfigurable-shelf",
+    title: "Dynamic Reconfigurable Shelf",
+    subtitle: "Modular shelf system designed to adapt layouts dynamically",
+    year: "2024",
+    tags: ["Product Design", "Mechanisms", "Optimization"],
+    highlight: "DTI project — modular design for flexible storage",
+    problem:
+      "Fixed shelving is inefficient when stored objects vary in size and inventory changes frequently.",
+    solution:
+      "Designed a reconfigurable shelf concept emphasizing modularity, fast re-layout, and space efficiency.",
+    impact: [
+      "Improved concept-level storage utilization",
+      "Designed for practical reconfiguration and usability",
     ],
   },
   {
     slug: "robosub-underwater-robotics",
     title: "RoboSub — Underwater Robotics (USA)",
-    subtitle: "Autonomous robotics work with SUTD OAR",
+    subtitle: "Underwater unit robot work with SUTD autonomy org",
     year: "2024–2025",
-    tags: ["Robotics", "Autonomy", "Team Engineering"],
-    highlight: "Singapore team participation — RoboSub (USA)",
+    tags: ["Robotics", "Autonomy", "Systems"],
+    highlight: "Competition participation — RoboSub (USA)",
     problem:
-      "Underwater autonomy introduces constraints: visibility, localization, robustness, and tight hardware/software integration.",
+      "Underwater autonomy is challenging due to localization, visibility, robustness, and tight integration requirements.",
     solution:
-      "Contributed under SUTD’s autonomous robotics organization, supporting underwater unit robot (U.W.U) work in a competition context.",
+      "Contributed under SUTD’s autonomous robotics organization, supporting underwater unit robot work within competition constraints.",
     impact: [
-      "Hands-on exposure to autonomy + system integration",
-      "Engineering execution under competition timelines",
+      "Hands-on autonomy + integration experience",
+      "Engineering delivery under competition timelines",
     ],
   },
   {
-    slug: "humanoid-assistive-robotics",
+    slug: "assistive-humanoids-st-engineering",
     title: "Humanoids for Assistive Robotics (ST Engineering)",
-    subtitle: "Ongoing exploration for disability support applications",
+    subtitle: "Ongoing work exploring humanoids for disability support",
     year: "Ongoing",
-    tags: ["Humanoids", "Impact", "Robotics"],
+    tags: ["Humanoids", "Assistive Tech", "Impact"],
     highlight: "Industry collaboration — ST Engineering (ongoing)",
     problem:
-      "Assistive robotics must be safe, reliable, and usable — built around real human needs and constraints.",
+      "Assistive robotics must be safe, reliable, and designed around real human needs and environments.",
     solution:
-      "Ongoing collaboration exploring humanoid applications for disability support, emphasizing usability, safety, and practical adoption factors.",
-    impact: ["Industry-connected scope", "Focused on meaningful real-world impact"],
+      "Ongoing collaboration exploring humanoid applications for disability support, focusing on usability and practical adoption constraints.",
+    impact: ["Industry-linked scope", "Real-world impact focus"],
   },
 ];

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Backdrop from "@/components/Backdrop";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { projects } from "@/lib/projects";
 
 export default async function ProjectDetail({
@@ -13,8 +15,8 @@ export default async function ProjectDetail({
   if (!p) {
     return (
       <div className="min-h-screen bg-zinc-950 text-zinc-100 px-6 py-14">
-        <Link href="/projects" className="text-sm text-zinc-300">
-          ← Back
+        <Link href="/projects" className="text-sm text-zinc-300 hover:text-white">
+          ← Projects
         </Link>
         <div className="mt-10 text-xl">Project not found.</div>
       </div>
@@ -24,6 +26,7 @@ export default async function ProjectDetail({
   return (
     <div className="min-h-screen">
       <Backdrop />
+      <Navbar />
 
       <div className="relative mx-auto max-w-3xl px-6 py-14">
         <Link href="/projects" className="text-sm text-zinc-300 hover:text-white">
@@ -50,7 +53,7 @@ export default async function ProjectDetail({
           <div className="mt-2 font-semibold">{p.highlight}</div>
         </div>
 
-        <div className="mt-10 space-y-8">
+        <div className="mt-10 space-y-10">
           <section>
             <h2 className="text-xl font-semibold">Problem</h2>
             <p className="mt-2 text-zinc-300 leading-relaxed">{p.problem}</p>
@@ -73,11 +76,9 @@ export default async function ProjectDetail({
             </ul>
           </section>
         </div>
-
-        <div className="mt-14 text-sm text-zinc-500">
-          © {new Date().getFullYear()} Vanika Sharma
-        </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

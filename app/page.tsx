@@ -1,112 +1,68 @@
-const links = [
-  { label: "Email", href: "mailto:vpulatsya@gmail.com" },
-  { label: "LinkedIn", href: "#" },
-  { label: "GitHub", href: "#" },
-  { label: "Resume", href: "/resume.pdf" },
-];
+"use client";
 
-const stats = [
-  { k: "Top 5", v: "SUTD Roboroars" },
-  { k: "Merit", v: "Engineering Innovation Challenge" },
-  { k: "Top 10", v: "Tan Kah Kee Young Inventor Awards" },
-  { k: "Gold", v: "Asian Yoga Championship" },
-];
-
-const projects = [
-  {
-    title: "Solar Aeroponics Windmill System",
-    desc: "Sustainable energy + aeroponics prototype to boost crop productivity and reduce resource usage.",
-    tag: "Award: Merit • EIC",
-  },
-  {
-    title: "License Plate Video Analytics System",
-    desc: "Computer vision system for detecting and analyzing license plates using ML-based pipelines.",
-    tag: "Award: Merit • EIC",
-  },
-  {
-    title: "Reconfigurable Dynamic Shelf",
-    desc: "Modular system designed to adapt shelf layouts dynamically for space optimization.",
-    tag: "DTI Project",
-  },
-  {
-    title: "Underwater Robotics (RoboSub USA)",
-    desc: "Worked under SUTD autonomous robotics org on an underwater unit robot (U.W.U).",
-    tag: "Competition: RoboSub",
-  },
-];
-
-const roles = [
-  "Vice President — IEEE SUTD Student Branch",
-  "President — SUTD Makerspace",
-  "Robotics Engineer Intern — Griffin Labs (Singapore)",
-  "Publicity Subcommittee — Institute of Physics Singapore Student Chapter",
-  "Yoga Instructor — Neecia Health",
-];
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Backdrop from "@/components/Backdrop";
+import Navbar from "@/components/Navbar";
+import Section from "@/components/Section";
+import ProjectCard from "@/components/ProjectCard";
+import Timeline from "@/components/Timeline";
+import Footer from "@/components/Footer";
+import { profile } from "@/lib/profile";
+import { projects } from "@/lib/projects";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      {/* background glow */}
-      <div className="pointer-events-none fixed inset-0 opacity-35">
-        <div className="absolute -top-44 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-zinc-800 blur-3xl" />
-      </div>
+    <div className="min-h-screen">
+      <Backdrop />
+      <Navbar />
 
       <div className="relative mx-auto max-w-6xl px-6 py-14">
-        {/* top bar */}
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="h-12 w-12 rounded-2xl bg-zinc-900 ring-1 ring-zinc-800 grid place-items-center font-semibold">
-              VS
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm text-zinc-400">Portfolio</div>
-              <div className="font-semibold tracking-tight">Vanika Sharma</div>
-            </div>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-2">
-            {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium ring-1 ring-zinc-800 hover:bg-zinc-800 transition"
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* hero */}
-        <section className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-center">
+        {/* HERO */}
+        <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
-              Robotics + Product Engineering
-              <span className="text-zinc-300"> built with impact.</span>
-            </h1>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+              className="inline-flex items-center gap-2 rounded-full bg-zinc-900/60 px-4 py-2 ring-1 ring-zinc-800 text-sm text-zinc-300"
+            >
+              {profile.headline}
+            </motion.div>
 
-            <p className="mt-5 max-w-xl text-zinc-300 leading-relaxed">
-              Engineering Product Development undergraduate at SUTD. I build robotics and
-              AI-driven prototypes, lead student communities, and ship projects that solve real problems.
-            </p>
+            <motion.h1
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.06 }}
+              className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]"
+            >
+              Building robotics + products that make people go
+              <span className="text-zinc-300"> “wow.”</span>
+            </motion.h1>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#projects"
+            <div className="mt-5 space-y-2 text-zinc-300 leading-relaxed max-w-xl">
+              {profile.summary.map((s) => (
+                <p key={s}>{s}</p>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/projects"
                 className="rounded-xl bg-white text-black px-5 py-2 text-sm font-semibold hover:opacity-90 transition"
               >
-                View Projects
-              </a>
+                Explore Projects
+              </Link>
               <a
-                href="#contact"
+                href={`mailto:${profile.email}`}
                 className="rounded-xl bg-zinc-900 px-5 py-2 text-sm font-semibold ring-1 ring-zinc-800 hover:bg-zinc-800 transition"
               >
                 Contact
               </a>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 max-w-xl">
-              {stats.map((s) => (
+            <div className="mt-10 grid grid-cols-2 gap-3 max-w-xl">
+              {profile.highlights.map((s) => (
                 <div
                   key={s.k}
                   className="rounded-2xl bg-zinc-900/60 p-4 ring-1 ring-zinc-800"
@@ -118,61 +74,72 @@ export default function Home() {
             </div>
           </div>
 
-          {/* right card */}
+          {/* RIGHT “WOW” CARD */}
           <div className="rounded-3xl bg-zinc-900/50 ring-1 ring-zinc-800 p-7">
-            <div className="text-sm text-zinc-400">Now</div>
-            <div className="mt-2 text-xl font-semibold">Building for real-world robotics</div>
+            <div className="text-sm text-zinc-400">Signature Focus</div>
+            <div className="mt-2 text-xl font-semibold">Assistive robotics + autonomy</div>
             <p className="mt-3 text-zinc-300 leading-relaxed">
-              Focus areas: humanoid robotics, autonomous systems, CAD, computer vision, and engineering leadership.
+              From underwater robotics (RoboSub) to humanoid assistive exploration, I build and lead with impact.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Robotics", "Humanoids", "CAD", "Computer Vision", "Leadership"].map((t) => (
+              {profile.badges.map((b) => (
                 <span
-                  key={t}
+                  key={b}
                   className="rounded-full bg-zinc-950 px-3 py-1 text-xs text-zinc-300 ring-1 ring-zinc-800"
                 >
-                  {t}
+                  {b}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-8">
+              <div className="text-sm text-zinc-400 mb-3">Featured Case Studies</div>
+              <div className="space-y-3">
+                {projects.slice(0, 3).map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/projects/${p.slug}`}
+                    className="group block rounded-2xl bg-zinc-950/60 ring-1 ring-zinc-800 p-4 hover:bg-zinc-950 transition"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <div className="font-semibold">{p.title}</div>
+                        <div className="mt-1 text-sm text-zinc-400">{p.subtitle}</div>
+                      </div>
+                      <div className="text-zinc-500 group-hover:text-zinc-200 transition">
+                        ↗
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* projects */}
-        <section id="projects" className="mt-16">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Featured Projects</h2>
-            <p className="text-sm text-zinc-400">Selected engineering + robotics work.</p>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {projects.map((p) => (
-              <div
-                key={p.title}
-                className="rounded-2xl bg-zinc-900/60 ring-1 ring-zinc-800 p-6 hover:bg-zinc-900 transition"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="font-semibold tracking-tight">{p.title}</h3>
-                    <p className="mt-2 text-sm text-zinc-300 leading-relaxed">{p.desc}</p>
-                    <p className="mt-3 text-xs text-zinc-500">{p.tag}</p>
-                  </div>
-                  <div className="h-9 w-9 rounded-xl bg-zinc-950 ring-1 ring-zinc-800 grid place-items-center text-zinc-400">
-                    ↗
-                  </div>
-                </div>
-              </div>
+        {/* PROJECTS */}
+        <Section title="Featured Projects" subtitle="Case studies with problem → solution → impact">
+          <div className="grid gap-4 md:grid-cols-2">
+            {projects.slice(0, 4).map((p) => (
+              <ProjectCard key={p.slug} p={p} />
             ))}
           </div>
-        </section>
+          <div className="mt-6">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-200 hover:text-white"
+            >
+              View all projects <span className="text-zinc-500">→</span>
+            </Link>
+          </div>
+        </Section>
 
-        {/* leadership */}
-        <section className="mt-16">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Leadership & Experience</h2>
-          <div className="mt-6 rounded-2xl bg-zinc-900/60 ring-1 ring-zinc-800 p-6">
+        {/* LEADERSHIP */}
+        <Section title="Leadership & Experience" subtitle="Leadership with delivery — not just titles">
+          <div className="rounded-2xl bg-zinc-900/60 ring-1 ring-zinc-800 p-6">
             <ul className="space-y-3 text-zinc-200">
-              {roles.map((r) => (
+              {profile.leadership.map((r) => (
                 <li key={r} className="flex gap-3">
                   <span className="text-zinc-500">•</span>
                   <span>{r}</span>
@@ -180,43 +147,44 @@ export default function Home() {
               ))}
             </ul>
           </div>
-        </section>
+        </Section>
 
-        {/* contact */}
-        <section id="contact" className="mt-16">
+        {/* TIMELINE */}
+        <Section title="Timeline" subtitle="A fast-moving trajectory in engineering + robotics">
+          <Timeline />
+        </Section>
+
+        {/* CONTACT */}
+        <Section title="Let’s connect" subtitle="Internships • collaborations • robotics • research">
           <div className="rounded-3xl bg-zinc-900/60 ring-1 ring-zinc-800 p-7">
-            <h2 className="text-2xl font-semibold tracking-tight">Let’s connect</h2>
-            <p className="mt-2 text-zinc-300">
-              For collaborations, internships, robotics projects, or research opportunities:
+            <p className="text-zinc-300">
+              Email me for collaborations, internships, research opportunities, or robotics projects.
             </p>
-
             <div className="mt-5 flex flex-wrap gap-3">
               <a
-                href="mailto:vpulatsya@gmail.com"
+                href={`mailto:${profile.email}`}
                 className="rounded-xl bg-white text-black px-5 py-2 text-sm font-semibold hover:opacity-90 transition"
               >
-                Email Vanika
+                Email
               </a>
               <a
-                href="#"
+                href={profile.links.resume}
                 className="rounded-xl bg-zinc-950 px-5 py-2 text-sm font-semibold ring-1 ring-zinc-800 hover:bg-zinc-900 transition"
               >
-                LinkedIn
+                Resume
               </a>
-              <a
-                href="#"
+              <Link
+                href="/projects"
                 className="rounded-xl bg-zinc-950 px-5 py-2 text-sm font-semibold ring-1 ring-zinc-800 hover:bg-zinc-900 transition"
               >
-                GitHub
-              </a>
+                Projects
+              </Link>
             </div>
           </div>
-        </section>
-
-        <footer className="mt-14 text-sm text-zinc-500">
-          © {new Date().getFullYear()} Vanika Sharma • Built with Next.js + Tailwind
-        </footer>
+        </Section>
       </div>
+
+      <Footer />
     </div>
   );
 }

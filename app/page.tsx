@@ -27,7 +27,6 @@ import Reveal from "@/components/Reveal";
 import SectionNav from "@/components/SectionNav";
 import Timeline from "@/components/Timeline";
 import TourGuide, { type TourStop } from "@/components/TourGuide";
-import WalkBand from "@/components/WalkBand";
 import { featuredProjects } from "@/lib/projects";
 import { avatar3dFull, profile } from "@/lib/profile";
 
@@ -468,15 +467,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* ───────────────────────── WALKING INTERLUDE ───────────────────────── */}
-        <WalkBand
-          videoSrc="/band.mp4"
-          poster="/band-poster.jpg"
-          eyebrow="The work"
-          title="Now the fun part"
-          subtitle="Real builds, awards, and the projects I'm proudest of — robotics, CAD, AI, and product concepts."
-        />
 
         {/* ───────────────────────── PROJECTS ───────────────────────── */}
         <section id="projects" className="relative px-[var(--shell)] py-16 md:py-24">

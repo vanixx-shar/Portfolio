@@ -66,23 +66,9 @@ export default function Preloader({ videoSrc = "/wave.mp4", poster = "/wave-post
       {!done && (
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#08080a]"
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          exit={{ y: "-100%" }}
+          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >
-          {/* split curtains on exit */}
-          <motion.div
-            className="absolute inset-y-0 left-0 z-30 w-1/2 bg-[#08080a]"
-            initial={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
-          />
-          <motion.div
-            className="absolute inset-y-0 right-0 z-30 w-1/2 bg-[#08080a]"
-            initial={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
-          />
-
           {/* ambience — always visible, no JS gate */}
           <div className="aurora pointer-events-none absolute h-[70vmin] w-[70vmin] rounded-full opacity-70" />
           <div

@@ -160,7 +160,7 @@ export default function HomePage() {
       <MetalField />
       <Navbar />
       <SectionNav items={navItems} />
-      <TourGuide src={avatar3dFull} stops={tourStops} />
+      <TourGuide videoSrc="/walk.mp4" poster="/walk-poster.jpg" stops={tourStops} />
 
       <main className="relative overflow-x-clip">
         {/* ───────────────────────── HERO ───────────────────────── */}

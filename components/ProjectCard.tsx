@@ -10,6 +10,38 @@ type ProjectCardProps = {
   project: Project;
 };
 
+type ProjectImage = NonNullable<Project["images"]>[number];
+
+function cardImageFrameClass(image: ProjectImage): string {
+  const aspect = image.aspect ?? "photo";
+  const aspectClass =
+    aspect === "banner"
+      ? "aspect-[2.1/1]"
+      : aspect === "logo"
+        ? "aspect-[2.35/1]"
+        : aspect === "portrait"
+          ? "aspect-[4/3]"
+          : "aspect-[16/10]";
+  const surfaceClass =
+    image.surface === "light"
+      ? "bg-[#f5f1e8]"
+      : image.surface === "dark"
+        ? "bg-black"
+        : "bg-white/[0.04]";
+
+  return [
+    "relative mb-5 overflow-hidden rounded-[1.35rem] border border-[#D7E2EA]/15",
+    aspectClass,
+    surfaceClass,
+  ].join(" ");
+}
+
+function cardImageClass(image: ProjectImage): string {
+  return image.fit === "contain"
+    ? "h-full w-full object-contain p-2 transition duration-500 group-hover:scale-[1.02]"
+    : "h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]";
+}
+
 export default function ProjectCard({ project }: ProjectCardProps) {
   const leadImage = project.images?.[0];
   const [style, setStyle] = useState<CSSProperties>({
@@ -54,13 +86,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="relative" style={{ transform: "translateZ(40px)" }}>
           {leadImage ? (
-            <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-[1.35rem] border border-[#D7E2EA]/15 bg-white/[0.04]">
+            <div className={cardImageFrameClass(leadImage)}>
               <img
                 src={leadImage.src}
                 alt={leadImage.alt}
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                className={cardImageClass(leadImage)}
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/45 via-transparent to-transparent" />
+              {leadImage.fit !== "contain" ? (
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/45 via-transparent to-transparent" />
+              ) : null}
             </div>
           ) : null}
 

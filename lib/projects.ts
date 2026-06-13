@@ -12,6 +12,9 @@ export type Project = {
     src: string;
     alt: string;
     caption: string;
+    fit?: "cover" | "contain";
+    aspect?: "photo" | "wide" | "banner" | "portrait" | "logo";
+    surface?: "dark" | "light";
   }[];
   sections?: {
     title: string;
@@ -47,6 +50,8 @@ export const projects: Project[] = [
         src: "/projects/makan-map-booth.jpg",
         alt: "MakanMap booth with prototype and poster at SUTD",
         caption: "Prototype booth setup with physical model, poster, and team demonstration.",
+        fit: "contain",
+        aspect: "portrait",
       },
     ],
     sections: [
@@ -115,16 +120,25 @@ export const projects: Project[] = [
         src: "/projects/shelfi-mus-overview.jpg",
         alt: "Shelf-imus Prime mechanism and parcel collection workflow",
         caption: "System storyboard covering adjustable shelves, delivery scanning, LEDs, and parcel pickup flow.",
+        fit: "contain",
+        aspect: "wide",
+        surface: "light",
       },
       {
         src: "/projects/shelfi-mus-challenges.jpg",
         alt: "Shelf-imus Prime challenge framing slide",
         caption: "Design challenges around moving vertical walls, durability, and avoiding reconfigurable doors.",
+        fit: "contain",
+        aspect: "wide",
+        surface: "light",
       },
       {
         src: "/projects/shelfi-mus-testing.jpg",
         alt: "Shelf-imus Prime user testing, SWOT, and iterative testing board",
         caption: "User testing, SWOT analysis, motor placement, leadscrew, puck, and circuit iteration notes.",
+        fit: "contain",
+        aspect: "wide",
+        surface: "light",
       },
     ],
     sections: [
@@ -191,16 +205,25 @@ export const projects: Project[] = [
         src: "/projects/loreal-discovery-folio.jpg",
         alt: "The Discovery Folio L'Oreal Brandstorm title slide",
         caption: "Brandstorm concept: redefining haute parfumerie through tactile, time-released slow olfaction.",
+        fit: "contain",
+        aspect: "banner",
+        surface: "light",
       },
       {
         src: "/projects/loreal-scent-ritual.jpeg",
         alt: "The Scent Ritual slide explaining tactile and thermal release",
         caption: "Eight-hour dry-down journey using micro-encapsulated fragrance oils in tactile strips.",
+        fit: "contain",
+        aspect: "banner",
+        surface: "light",
       },
       {
         src: "/projects/loreal-performance-kpis.jpg",
         alt: "Discovery Folio performance KPI slide",
         caption: "Commercial, safety, and eco-index measurements for validating the product concept.",
+        fit: "contain",
+        aspect: "banner",
+        surface: "light",
       },
     ],
     sections: [
@@ -252,11 +275,16 @@ export const projects: Project[] = [
         src: "/projects/zygos-logo.jpg",
         alt: "Zygos game logo",
         caption: "Zygos visual identity for the clean-eating awareness game.",
+        fit: "contain",
+        aspect: "logo",
+        surface: "dark",
       },
       {
         src: "/projects/zygos-hackathon-certificate.jpg",
         alt: "Hackathon 2024 certificate of participation for Vanika Sharma",
         caption: "Hackathon participation certificate for the 2024 SIM-UOL CSSC event.",
+        fit: "contain",
+        aspect: "wide",
       },
     ],
     featured: true,
@@ -282,6 +310,9 @@ export const projects: Project[] = [
         src: "/projects/patent-3d-tv-certificate.jpg",
         alt: "Patent certificate related to glasses-free 3D TV value-add work",
         caption: "Patent certificate supporting the display-technology value-add work.",
+        fit: "contain",
+        aspect: "portrait",
+        surface: "light",
       },
     ],
     featured: true,

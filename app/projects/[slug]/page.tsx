@@ -12,6 +12,62 @@ type ProjectDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+type ProjectImage = NonNullable<(typeof projects)[number]["images"]>[number];
+type ImagePlacement = "hero" | "gallery";
+
+function imageFrameClass(image: ProjectImage, placement: ImagePlacement): string {
+  const aspect = image.aspect ?? "photo";
+  const aspectClass =
+    aspect === "banner"
+      ? "aspect-[2.62/1]"
+      : aspect === "logo"
+        ? "aspect-[2.75/1]"
+        : aspect === "portrait"
+          ? "aspect-[3/4]"
+          : aspect === "wide"
+            ? "aspect-[16/9]"
+            : placement === "hero"
+              ? "aspect-[4/3]"
+              : "aspect-[16/9]";
+  const widthClass =
+    aspect === "portrait"
+      ? placement === "hero"
+        ? "mx-auto w-full max-w-[380px]"
+        : "mx-auto w-full max-w-[520px]"
+      : "w-full";
+  const surfaceClass =
+    image.surface === "light"
+      ? "bg-[#f5f1e8]"
+      : image.surface === "dark"
+        ? "bg-black"
+        : "bg-white/[0.03]";
+
+  return [
+    "relative overflow-hidden rounded-[1.5rem] border border-[#D7E2EA]/15 shadow-[0_24px_80px_rgba(0,0,0,0.35)]",
+    aspectClass,
+    widthClass,
+    surfaceClass,
+  ].join(" ");
+}
+
+function imageClass(image: ProjectImage): string {
+  return image.fit === "contain"
+    ? "h-full w-full object-contain p-2 sm:p-3"
+    : "h-full w-full object-cover";
+}
+
+function galleryFigureClass(image: ProjectImage, index: number, imageCount: number): string | undefined {
+  if (image.aspect === "portrait") {
+    return imageCount === 1 ? "md:col-span-2" : undefined;
+  }
+
+  if (imageCount === 1 || (index === 0 && imageCount > 2)) {
+    return "md:col-span-2";
+  }
+
+  return undefined;
+}
+
 export async function generateMetadata({ params }: ProjectDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
@@ -85,13 +141,15 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             </div>
 
             {leadImage ? (
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-[#D7E2EA]/15 bg-[#0C0C0C] shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+              <div className={imageFrameClass(leadImage, "hero")}>
                 <img
                   src={leadImage.src}
                   alt={leadImage.alt}
-                  className="h-full w-full object-cover"
+                  className={imageClass(leadImage)}
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/50 via-transparent to-transparent" />
+                {leadImage.fit !== "contain" ? (
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/50 via-transparent to-transparent" />
+                ) : null}
               </div>
             ) : null}
           </div>
@@ -115,13 +173,13 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               {galleryImages.map((image, index) => (
                 <figure
                   key={image.src}
-                  className={index === 0 && galleryImages.length > 2 ? "md:col-span-2" : undefined}
+                  className={galleryFigureClass(image, index, galleryImages.length)}
                 >
-                  <div className="relative aspect-[16/9] overflow-hidden rounded-[1.5rem] border border-[#D7E2EA]/15 bg-white/[0.03]">
+                  <div className={imageFrameClass(image, "gallery")}>
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="h-full w-full object-cover"
+                      className={imageClass(image)}
                     />
                   </div>
                   <figcaption className="mt-3 text-sm leading-relaxed text-[#D7E2EA]/60">{image.caption}</figcaption>

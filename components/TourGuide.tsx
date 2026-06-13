@@ -22,6 +22,15 @@ export default function TourGuide({ videoSrc, poster, stops }: TourGuideProps) {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(true);
   const ratios = useRef<number[]>(stops.map(() => 0));
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (visible && v) {
+      v.muted = true;
+      v.play().catch(() => {});
+    }
+  }, [visible]);
 
   // Which section is she standing in front of?
   useEffect(() => {
@@ -93,12 +102,14 @@ export default function TourGuide({ videoSrc, poster, stops }: TourGuideProps) {
             >
               <div className="relative overflow-hidden rounded-[1.4rem] bg-[#100a0e]">
                 <video
+                  ref={videoRef}
                   src={videoSrc}
                   poster={poster}
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   className="h-[180px] w-[112px] object-cover sm:h-[224px] sm:w-[140px]"
                   style={{
                     WebkitMaskImage:

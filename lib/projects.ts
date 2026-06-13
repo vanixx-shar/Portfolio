@@ -8,10 +8,58 @@ export type Project = {
   problem: string;
   solution: string;
   impact: string[];
+  images?: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
+  sections?: {
+    title: string;
+    body: string[];
+  }[];
   featured?: boolean;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "makan-map-accessible-hawker-navigation",
+    title: "MakanMap",
+    subtitle: "Dynamic tactile map kiosk for accessible hawker-centre navigation",
+    year: "2025",
+    tags: ["Accessibility", "Haptics", "Product Design"],
+    highlight: "Assistive navigation concept for visually impaired diners",
+    problem:
+      "Traditional static tactile maps are rigid and often outdated. Visually impaired diners lack a dynamic, real-time interface to navigate shifting stall layouts, identify available seating, or locate specific cuisines in busy food centers.",
+    solution:
+      "Developed a dynamic tactile map kiosk that translates digital floor plans into physical textures, letting users feel the layout of a makan center through an intuitive, refreshable spatial guide.",
+    impact: [
+      "Enhanced accessibility by shifting food centers from difficult-to-navigate spaces into more inclusive environments through high-fidelity tactile feedback",
+      "Connected dynamic data streams, including stall closures and wet-floor warnings, directly into the physical user interface",
+      "Validated assistive engineering through feedback loops with visually impaired users to improve practical usability",
+    ],
+    images: [
+      {
+        src: "/projects/makan-map-demo.jpg",
+        alt: "MakanMap presentation with tactile kiosk concept poster",
+        caption: "Explaining the MakanMap tactile navigation system during a project showcase.",
+      },
+      {
+        src: "/projects/makan-map-booth.jpg",
+        alt: "MakanMap booth with prototype and poster at SUTD",
+        caption: "Prototype booth setup with physical model, poster, and team demonstration.",
+      },
+    ],
+    sections: [
+      {
+        title: "Human-Centered Direction",
+        body: [
+          "The concept focuses on independence inside crowded food centers, where changing stall availability, queues, seating, and environmental hazards make static maps less useful.",
+          "The kiosk turns live layout information into tactile interaction so navigation is not only visual or screen-dependent.",
+        ],
+      },
+    ],
+    featured: true,
+  },
   {
     slug: "windmill-aeroponics-system-eic",
     title: "Windmill Aeroponics System",
@@ -48,18 +96,45 @@ export const projects: Project[] = [
   },
   {
     slug: "dynamic-reconfigurable-shelf-dti",
-    title: "Dynamic Reconfigurable Shelf",
-    subtitle: "Adaptive shelf mechanism for DTI with flexible geometry handling",
+    title: "Shelf-imus Prime",
+    subtitle: "Dynamic reconfigurable parcel shelf for high-volume collection points",
     year: "2025",
-    tags: ["CAD", "Mechanical Design", "Product Engineering"],
+    tags: ["CAD", "Mechanical Design", "Logistics Automation"],
     highlight: "DTI project submission",
     problem:
-      "Static shelves fail to efficiently handle variable object dimensions and changing layouts.",
+      "University parcel collection points often face severe spatial inefficiency due to high-volume overflow and static shelving. Traditional racks cannot accommodate irregular, fluctuating e-commerce package sizes, which creates wasted vertical space and cluttered floor areas.",
     solution:
-      "Developed a reconfigurable concept that allows rapid adjustment and better volume utilization.",
+      "Engineered a dynamic reconfigurable shelf with motorized, sensor-driven partitions designed to adjust internal dimensions around the specific volume of each parcel and maximize storage density in real time.",
     impact: [
-      "Improved storage flexibility in concept validation",
-      "Strengthened CAD-to-prototype engineering process",
+      "Estimated up to 40% storage-capacity improvement by reducing dead air between differently sized packages",
+      "Reduced retrieval friction and floor clutter for safer, more organized high-traffic university hubs",
+      "Demonstrated a modular approach to logistics automation that can be integrated with minimal footprint",
+    ],
+    images: [
+      {
+        src: "/projects/shelfi-mus-overview.jpg",
+        alt: "Shelf-imus Prime mechanism and parcel collection workflow",
+        caption: "System storyboard covering adjustable shelves, delivery scanning, LEDs, and parcel pickup flow.",
+      },
+      {
+        src: "/projects/shelfi-mus-challenges.jpg",
+        alt: "Shelf-imus Prime challenge framing slide",
+        caption: "Design challenges around moving vertical walls, durability, and avoiding reconfigurable doors.",
+      },
+      {
+        src: "/projects/shelfi-mus-testing.jpg",
+        alt: "Shelf-imus Prime user testing, SWOT, and iterative testing board",
+        caption: "User testing, SWOT analysis, motor placement, leadscrew, puck, and circuit iteration notes.",
+      },
+    ],
+    sections: [
+      {
+        title: "Prototype Iteration",
+        body: [
+          "The design explored leadscrew-driven motion, 3D-printed mounting components, LED retrieval cues, and a barcode-driven collection workflow.",
+          "Testing surfaced mechanical and electrical issues including motor tilt, grip instability around the leadscrew nut, wiring clutter, and puck alignment. Each issue was converted into a concrete prototype revision.",
+        ],
+      },
     ],
     featured: true,
   },
@@ -97,19 +172,47 @@ export const projects: Project[] = [
   },
   {
     slug: "loreal-hackathon-product-build",
-    title: "L'Oreal Hackathon Product Build",
-    subtitle: "Current product build in active hackathon cycle",
+    title: "The Discovery Folio",
+    subtitle: "L'Oreal Brandstorm concept for tactile, time-released slow olfaction",
     year: "2026",
-    tags: ["Hackathon", "Product Strategy", "Innovation"],
-    highlight: "In progress - details expanding soon",
+    tags: ["Hackathon", "Sustainable Luxury", "Material Innovation"],
+    highlight: "L'Oreal Brandstorm 2026 Singapore concept",
     problem:
-      "Emerging product challenge under hackathon timeline constraints.",
+      "Traditional luxury fragrances rely on bulky glass packaging and alcohol-based sprays that create environmental waste and deliver a static, fleeting scent experience. This format also lacks precision in showcasing the complex 8-hour evolution of high-end fragrance profiles.",
     solution:
-      "Building an early product concept with user-value framing, rapid validation, and technical feasibility alignment.",
+      "Developed the Discovery Folio, a collectible accessory using thermal-release micro-encapsulation. By replacing liquid sprays with biodegradable, heat-activated strips, the folio creates a tactile slow-olfaction ritual where body heat triggers a precise time-released dry-down of top, heart, and base notes.",
     impact: [
-      "Live development under compressed timeline",
-      "Structured foundation ready for deeper iteration",
+      "Eliminates glass and liquid waste through a biodegradable, tech-driven fragrance delivery format",
+      "Creates a controlled 8-hour scent journey that lets the fragrance evolve as the perfumer intended",
+      "Reframes fragrance as a tactile, collectible art piece that combines luxury storytelling with material science",
     ],
+    images: [
+      {
+        src: "/projects/loreal-discovery-folio.jpg",
+        alt: "The Discovery Folio L'Oreal Brandstorm title slide",
+        caption: "Brandstorm concept: redefining haute parfumerie through tactile, time-released slow olfaction.",
+      },
+      {
+        src: "/projects/loreal-scent-ritual.jpeg",
+        alt: "The Scent Ritual slide explaining tactile and thermal release",
+        caption: "Eight-hour dry-down journey using micro-encapsulated fragrance oils in tactile strips.",
+      },
+      {
+        src: "/projects/loreal-performance-kpis.jpg",
+        alt: "Discovery Folio performance KPI slide",
+        caption: "Commercial, safety, and eco-index measurements for validating the product concept.",
+      },
+    ],
+    sections: [
+      {
+        title: "Product Logic",
+        body: [
+          "The folio replaces disposable sampling and heavy packaging with dry-down paper strips designed to activate from skin temperature.",
+          "The KPI frame combines commercial impact, refill retention, hypoallergenic safety, and material reduction so the product can be judged as both a luxury experience and a sustainable system.",
+        ],
+      },
+    ],
+    featured: true,
   },
   {
     slug: "improved-satellite-design-tan-kah-kee",
@@ -130,36 +233,75 @@ export const projects: Project[] = [
   },
   {
     slug: "clean-eating-habits-awareness-game",
-    title: "Clean Eating Habits Awareness Game",
-    subtitle: "Interactive game built for SIM hackathon awareness track",
+    title: "Zygos",
+    subtitle: "Interactive clean-eating awareness game built in Python",
     year: "2024",
-    tags: ["Game Design", "Health Awareness", "Hackathon"],
-    highlight: "SIM hackathon project",
+    tags: ["Game Design", "Python", "Health Awareness"],
+    highlight: "SIM Hackathon '24 participation",
     problem:
-      "Health awareness content often struggles to sustain user engagement.",
+      "Despite the amount of nutritional information available, many people struggle to build sustainable clean-eating habits because the education is not engaging or low-friction. Traditional health apps can feel like chores, which hurts retention and awareness.",
     solution:
-      "Built a game format to make clean-eating education interactive and behavior-oriented.",
+      "Developed Zygos, an interactive awareness game in Python using PyCharm that turns nutritional concepts into a dynamic gameplay loop. The game simulates the impact of dietary choices on long-term health metrics and gives immediate visual feedback in a risk-free digital environment.",
     impact: [
-      "Improved engagement in awareness delivery",
-      "Created an accessible health-education interaction model",
+      "Created a learning-through-play framework that simplified complex nutritional information into memorable gameplay",
+      "Built the full prototype under hackathon constraints, from logic architecture to final UI",
+      "Designed the codebase for modular expansion into additional wellness categories",
     ],
+    images: [
+      {
+        src: "/projects/zygos-logo.jpg",
+        alt: "Zygos game logo",
+        caption: "Zygos visual identity for the clean-eating awareness game.",
+      },
+      {
+        src: "/projects/zygos-hackathon-certificate.jpg",
+        alt: "Hackathon 2024 certificate of participation for Vanika Sharma",
+        caption: "Hackathon participation certificate for the 2024 SIM-UOL CSSC event.",
+      },
+    ],
+    featured: true,
   },
   {
     slug: "patent-value-add-3d-tv-without-glasses",
     title: "Patent Value Add - 3D TV Without Glasses",
-    subtitle: "Contribution to value expansion for glasses-free 3D TV patent scope",
+    subtitle: "Patent-scope expansion for autostereoscopic display technology",
     year: "2025",
     tags: ["Patent", "Innovation", "Display Technology"],
     highlight: "Patent value-add contribution",
     problem:
-      "Emerging technologies require stronger bridges between technical novelty and commercial value.",
+      "Current glasses-free 3D displays suffer from narrow sweet spots, low resolution, and high manufacturing complexity. Existing patents can be too narrow when they focus only on specific optical layers, limiting commercial licensing potential and hardware interoperability.",
     solution:
-      "Contributed to value-add framing for glasses-free 3D TV innovation and positioning.",
+      "Spearheaded patent scope expansion by integrating adaptive eye-tracking algorithms and multi-view rendering optimizations, broadening the claims toward dynamic parallax adjustment and cross-platform software drivers.",
     impact: [
-      "Strengthened innovation-to-value articulation",
-      "Expanded practical relevance of the patent proposition",
+      "Expanded the patent's defensive and offensive utility, increasing its value for licensing to consumer electronics manufacturers",
+      "Framed interoperability across OLED, LCD, and Micro-LED panel types by decoupling the 3D effect from one hardware implementation",
+      "Reduced adoption friction through clearer software-hardware interface standards for laptops and mobile devices",
+    ],
+    images: [
+      {
+        src: "/projects/patent-3d-tv-certificate.jpg",
+        alt: "Patent certificate related to glasses-free 3D TV value-add work",
+        caption: "Patent certificate supporting the display-technology value-add work.",
+      },
     ],
     featured: true,
+  },
+  {
+    slug: "custom-digital-camera-build",
+    title: "Custom Digital Camera",
+    subtitle: "Scratch-built digital camera blending retro image character with modern embedded systems",
+    year: "2025",
+    tags: ["Embedded Systems", "Product Design", "Hardware"],
+    highlight: "Full-stack hardware-software product build",
+    problem:
+      "Modern smartphone photography is dominated by computational over-processing, which can strip away the organic texture and nostalgic character of early-2000s sensors. Commercial digicams have also become expensive vintage items that lack modern connectivity, repairability, and customizability.",
+    solution:
+      "Engineered a custom digital camera from the ground up by combining retro CCD/CMOS-inspired image character with modern embedded systems and a dedicated image sensor connected to a custom-programmed microcontroller.",
+    impact: [
+      "Demonstrated hardware-software integration across sensor interfacing, battery management, and PCB layout",
+      "Used CAD modeling and 3D printing to create a tactile body balancing retro aesthetics with modern durability",
+      "Built a platform for intentional photography focused on sensory output instead of megapixels and AI sharpening",
+    ],
   },
   {
     slug: "st-engineering-humanoids-for-disabled",
@@ -197,19 +339,43 @@ export const projects: Project[] = [
   },
   {
     slug: "steamxd-robotics-mentor",
-    title: "Robotics Mentor - STEAMxD",
-    subtitle: "Mentorship project supporting younger learners in robotics",
+    title: "STEAMxD Robotics Mentor",
+    subtitle: "Applied robotics mentorship guiding students through Smorphi robot development",
     year: "2025",
     tags: ["Mentorship", "Robotics Education", "Leadership"],
     highlight: "Community robotics mentorship",
     problem:
-      "Early learners need structured and motivating pathways into robotics.",
+      "Younger learners often face a steep cliff when moving from simple toys to real-world robotics. Theoretical STEAM education frequently lacks the hands-on hardware exposure and troubleshooting grit required for integrated systems such as microcontrollers and sensors.",
     solution:
-      "Mentored students through robotics fundamentals, project framing, and technical confidence building.",
+      "Led a mentorship program centered on applied robotics, guiding students through the full development cycle of building the Smorphi robot and connecting design decisions to real hardware behavior.",
     impact: [
-      "Supported learning outcomes through guided mentorship",
-      "Extended robotics impact beyond competition and coursework",
+      "Helped student cohorts move from block-based logic toward C++ and Python workflows",
+      "Cultivated a learning-by-doing culture where hardware failures became iteration data instead of stopping points",
+      "Translated complex robotics concepts into accessible, high-impact learning modules for younger makers",
     ],
+    images: [
+      {
+        src: "/projects/steamxd-group.jpg",
+        alt: "STEAMxD robotics mentor group photo",
+        caption: "STEAMxD team photo after robotics mentorship work.",
+      },
+      {
+        src: "/projects/steamxd-meeting.jpg",
+        alt: "STEAMxD students discussing robotics development",
+        caption: "Planning and troubleshooting session with robotics students.",
+      },
+      {
+        src: "/projects/steamxd-build-session.jpg",
+        alt: "STEAMxD robotics build session with Vanika and teammates",
+        caption: "Hands-on robotics build session around the Smorphi robot.",
+      },
+      {
+        src: "/projects/robotics-build-session.jpg",
+        alt: "Robotics team testing a small robot on the floor",
+        caption: "Hardware testing and integration work during a robotics build session.",
+      },
+    ],
+    featured: true,
   },
 ];
 

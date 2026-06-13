@@ -1,15 +1,29 @@
 import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
+import { ContactButton } from "@/components/PortfolioButtons";
 import { profile } from "@/lib/profile";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-zinc-900/80 pb-10 pt-8">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-5 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <div className="flex flex-wrap items-center gap-4">
+    <footer id="contact" className="bg-[#0C0C0C] px-5 py-20 text-[#D7E2EA] sm:px-8 md:px-10">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-widest text-[#D7E2EA]/60">Contact</p>
+            <h2 className="hero-heading mt-4 text-[clamp(3rem,10vw,120px)] font-black uppercase leading-none">
+              Build with Vanika
+            </h2>
+            <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-[#D7E2EA]/75 sm:text-lg">
+              If your team is tackling difficult robotics or product engineering problems, let&apos;s connect.
+            </p>
+          </div>
+          <ContactButton href={`mailto:${profile.email}`}>Email Vanika</ContactButton>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-5 border-t border-white/10 pt-8 text-sm font-light">
           <a
             href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-2 text-zinc-300 transition hover:text-white"
+            className="inline-flex items-center gap-2 transition hover:opacity-70"
           >
             <Mail className="h-4 w-4" />
             {profile.email}
@@ -18,16 +32,21 @@ export default function Footer() {
             href={profile.linkedinUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-zinc-300 transition hover:text-white"
+            className="inline-flex items-center gap-2 transition hover:opacity-70"
           >
             <Linkedin className="h-4 w-4" />
             LinkedIn
           </a>
+          <Link href={profile.resumePath} className="transition hover:opacity-70">
+            Resume
+          </Link>
+          <Link href="/projects" className="transition hover:opacity-70">
+            Project archive
+          </Link>
+          <p className="ml-0 text-[#D7E2EA]/45 md:ml-auto">
+            Built by {profile.name} with Next.js, Tailwind CSS, and Framer Motion.
+          </p>
         </div>
-        <p className="text-zinc-500">Built by {profile.name} with Next.js, Tailwind CSS, and Framer Motion.</p>
-        <Link href={profile.resumePath} className="text-zinc-400 transition hover:text-zinc-200">
-          Resume
-        </Link>
       </div>
     </footer>
   );

@@ -1,7 +1,11 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+
+@source "./";
+@source "../components";
 
 :root {
   color-scheme: dark;
+  background: #0c0c0c;
 }
 
 * {
@@ -10,18 +14,144 @@
 
 html,
 body {
+  background: #0c0c0c;
   margin: 0;
   min-height: 100%;
+  overflow-x: clip;
+  padding: 0;
 }
 
 body {
-  background: #0b0b0f;
-  color: #f4f4f5;
-  font-family: "Sora", "Avenir Next", "Segoe UI", sans-serif;
+  color: #d7e2ea;
+  font-family: "Avenir Next Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
+body > div {
+  background: #0c0c0c;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fade-in {
+  animation: fade-rise var(--fade-duration, 0.7s) cubic-bezier(0.25, 0.1, 0.25, 1) var(--fade-delay, 0s) both;
+  transform: translate3d(var(--fade-x, 0), var(--fade-y, 30px), 0);
+}
+
+.animated-char {
+  animation: char-glow 0.7s ease var(--char-delay, 0s) both;
+  display: inline-block;
+}
+
+.project-card-tilt {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.project-card-tilt:hover {
+  border-color: rgba(215, 226, 234, 0.45);
+}
+
+.magnet-frame {
+  transition: transform 220ms ease;
+}
+
+.magnet-frame:hover {
+  transform: translateY(-6px) scale(1.015);
+}
+
+.marquee-track {
+  animation-duration: 38s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-left {
+  animation-name: marquee-left;
+}
+
+.marquee-right {
+  animation-name: marquee-right;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--fade-x, 0), var(--fade-y, 30px), 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-50% - 0.375rem), 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translate3d(calc(-50% - 0.375rem), 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes char-glow {
+  from {
+    color: rgba(215, 226, 234, 0.24);
+    opacity: 0.35;
+    transform: translateY(0.25em);
+  }
+
+  to {
+    color: #d7e2ea;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .animated-char,
+  .magnet-frame,
+  .marquee-track,
+  .project-card-tilt {
+    animation: none;
+    transform: none;
+    transition: none;
+  }
+}
+
 ::selection {
-  background: rgba(228, 228, 231, 0.28);
+  background: rgba(182, 0, 168, 0.4);
   color: #fafafa;
 }

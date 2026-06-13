@@ -1,7 +1,8 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useState, type CSSProperties } from "react";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
@@ -10,59 +11,69 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const x = useMotionValue(0.5);
-  const y = useMotionValue(0.5);
-
-  const rotateX = useSpring(useTransform(y, [0, 1], [8, -8]), {
-    stiffness: 220,
-    damping: 22,
-  });
-  const rotateY = useSpring(useTransform(x, [0, 1], [-10, 10]), {
-    stiffness: 220,
-    damping: 22,
-  });
-
-  const glowX = useTransform(x, [0, 1], ["20%", "80%"]);
-  const glowY = useTransform(y, [0, 1], ["15%", "85%"]);
+  const leadImage = project.images?.[0];
+  const [style, setStyle] = useState<CSSProperties>({
+    "--gx": "50%",
+    "--gy": "50%",
+    "--rx": "0deg",
+    "--ry": "0deg",
+  } as CSSProperties);
 
   return (
     <div className="[perspective:1000px]">
-      <motion.article
-        whileHover={{ y: -8 }}
-        transition={{ type: "spring", stiffness: 320, damping: 24 }}
+      <article
         onMouseMove={(event) => {
           const rect = event.currentTarget.getBoundingClientRect();
-          x.set((event.clientX - rect.left) / rect.width);
-          y.set((event.clientY - rect.top) / rect.height);
+          const px = (event.clientX - rect.left) / rect.width;
+          const py = (event.clientY - rect.top) / rect.height;
+
+          setStyle({
+            "--gx": `${px * 100}%`,
+            "--gy": `${py * 100}%`,
+            "--rx": `${(0.5 - py) * 10}deg`,
+            "--ry": `${(px - 0.5) * 12}deg`,
+          } as CSSProperties);
         }}
         onMouseLeave={() => {
-          x.set(0.5);
-          y.set(0.5);
+          setStyle({
+            "--gx": "50%",
+            "--gy": "50%",
+            "--rx": "0deg",
+            "--ry": "0deg",
+          } as CSSProperties);
         }}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="group relative overflow-hidden rounded-3xl border border-zinc-800/80 bg-zinc-900/55 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]"
+        style={style}
+        className="project-card-tilt group relative h-full overflow-hidden rounded-[2rem] border border-[#D7E2EA]/20 bg-[#0C0C0C] p-4 shadow-[0_18px_60px_rgba(0,0,0,0.4)] sm:p-5"
       >
-        <motion.div
+        <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background:
-              "radial-gradient(circle at var(--gx) var(--gy), rgba(255,255,255,0.16), transparent 40%)",
-            ["--gx" as string]: glowX,
-            ["--gy" as string]: glowY,
+            background: "radial-gradient(circle at var(--gx) var(--gy), rgba(182,0,168,0.24), transparent 42%)",
           }}
         />
 
-        <div style={{ transform: "translateZ(40px)" }}>
-          <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{project.year}</p>
-          <h3 className="mt-3 text-xl font-semibold tracking-tight text-zinc-100">{project.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-300">{project.subtitle}</p>
-          <p className="mt-4 text-sm font-medium text-zinc-200">{project.highlight}</p>
+        <div className="relative" style={{ transform: "translateZ(40px)" }}>
+          {leadImage ? (
+            <div className="relative mb-5 aspect-[16/10] overflow-hidden rounded-[1.35rem] border border-[#D7E2EA]/15 bg-white/[0.04]">
+              <img
+                src={leadImage.src}
+                alt={leadImage.alt}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/45 via-transparent to-transparent" />
+            </div>
+          ) : null}
+
+          <p className="text-xs uppercase tracking-[0.18em] text-[#D7E2EA]/50">{project.year}</p>
+          <h3 className="mt-3 text-2xl font-black uppercase leading-tight text-[#D7E2EA]">{project.title}</h3>
+          <p className="mt-3 text-sm font-light leading-relaxed text-[#D7E2EA]/75">{project.subtitle}</p>
+          <p className="mt-4 text-sm font-medium text-[#D7E2EA]">{project.highlight}</p>
 
           <div className="mt-5 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-zinc-800 bg-zinc-950/80 px-3 py-1 text-xs text-zinc-300"
+                className="rounded-full border border-[#D7E2EA]/15 bg-white/[0.03] px-3 py-1 text-xs text-[#D7E2EA]/75"
               >
                 {tag}
               </span>
@@ -71,13 +82,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
           <Link
             href={`/projects/${project.slug}`}
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-100 transition hover:text-white"
+            className="mt-6 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-[#D7E2EA] transition hover:opacity-70"
           >
             View case study
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
-      </motion.article>
+      </article>
     </div>
   );
 }

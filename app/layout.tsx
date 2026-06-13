@@ -3,24 +3,24 @@ import "./globals.css";
 import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vanika-portfolio.example"),
+  metadataBase: new URL("https://portfolio-tawny-ten-7fv0d2vi2z.vercel.app"),
   title: {
-    default: `${profile.name} | Robotics Portfolio`,
+    default: `${profile.name} -- Robotics + Product Engineering`,
     template: `%s | ${profile.name}`,
   },
   description:
-    "Elite robotics portfolio of Vanika Sharma featuring humanoids, autonomy, CAD-driven engineering, and award-winning product development.",
+    "Dark 3D-inspired portfolio for Vanika Sharma, featuring robotics, CAD, AI-driven prototypes, product engineering, and technical leadership.",
   openGraph: {
-    title: `${profile.name} | Robotics Portfolio`,
+    title: `${profile.name} -- Robotics + Product Engineering`,
     description:
-      "Humanoids, autonomy, CAD, leadership, and award-winning engineering projects.",
+      "Robotics, product engineering, autonomy, CAD, leadership, and award-winning technical projects.",
     type: "website",
-    url: "https://vanika-portfolio.example",
+    url: "https://portfolio-tawny-ten-7fv0d2vi2z.vercel.app",
     siteName: `${profile.name} Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | Robotics Portfolio`,
+    title: `${profile.name} -- Robotics + Product Engineering`,
     description:
       "Robotics, product development, autonomy, and leadership from Vanika Sharma.",
   },

@@ -49,14 +49,14 @@ export default function HeroScene({ role, highlights }: HeroSceneProps) {
           <div className="relative aspect-[3/4] w-full max-w-[14rem] overflow-hidden rounded-3xl border border-zinc-700/70 bg-zinc-900/80 p-2 shadow-[0_16px_60px_rgba(0,0,0,0.4)] sm:max-w-[15rem]">
             <div className="relative h-full w-full overflow-hidden rounded-[1.2rem] border border-zinc-800">
               <Image
-                src="/vanika-portrait.jpg"
-                alt="Portrait of Vanika Sharma"
+                src="/vanika-3d-avatar.png"
+                alt="3D avatar of Vanika Sharma"
                 fill
                 priority
                 quality={100}
                 unoptimized
                 sizes="(min-width: 1024px) 256px, (min-width: 640px) 240px, 65vw"
-                className="object-cover object-top"
+                className="object-contain object-bottom"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/55 via-transparent to-zinc-950/10" />
             </div>

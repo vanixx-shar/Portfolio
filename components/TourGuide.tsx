@@ -152,18 +152,35 @@ export default function TourGuide({ src, stops }: TourGuideProps) {
               </button>
             )}
 
-            {/* Walking avatar: facing flip + footstep bob */}
-            <div className="aurora pointer-events-none absolute -inset-4 -z-10 rounded-full opacity-50" />
-            <motion.div animate={{ scaleX: facing }} transition={{ duration: 0.4 }}>
-              <motion.img
-                src={src}
-                alt="Vanika, your guide"
-                draggable={false}
-                animate={{ y: [0, -9, 0], rotate: [-1.6, 1.6, -1.6] }}
-                transition={{ duration: 0.72, repeat: Infinity, ease: "easeInOut" }}
-                className="h-[160px] w-auto select-none object-contain drop-shadow-[0_16px_34px_rgba(255,95,168,0.34)] md:h-[200px]"
+            {/* Walking avatar: facing flip + two-step stride cycle */}
+            <div className="relative">
+              <div className="aurora pointer-events-none absolute -inset-4 -z-10 rounded-full opacity-50" />
+              <motion.div animate={{ scaleX: facing }} transition={{ duration: 0.4 }}>
+                <motion.img
+                  src={src}
+                  alt="Vanika, your guide"
+                  draggable={false}
+                  animate={{
+                    y: [0, -7, 0, -7, 0],
+                    rotate: [-2.4, 0, 2.4, 0, -2.4],
+                    x: [0, -3, 0, 3, 0],
+                  }}
+                  transition={{
+                    duration: 0.92,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    times: [0, 0.25, 0.5, 0.75, 1],
+                  }}
+                  className="h-[160px] w-auto select-none object-contain drop-shadow-[0_16px_34px_rgba(255,95,168,0.34)] md:h-[200px]"
+                />
+              </motion.div>
+              {/* ground shadow compresses on each footfall */}
+              <motion.span
+                className="absolute -bottom-1 left-1/2 h-2.5 w-20 -translate-x-1/2 rounded-[999px] bg-black/60 blur-md"
+                animate={{ scaleX: [1, 0.74, 1, 0.74, 1], opacity: [0.5, 0.28, 0.5, 0.28, 0.5] }}
+                transition={{ duration: 0.92, repeat: Infinity, ease: "easeInOut", times: [0, 0.25, 0.5, 0.75, 1] }}
               />
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       )}

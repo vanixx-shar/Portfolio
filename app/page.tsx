@@ -20,6 +20,7 @@ import Footer from "@/components/Footer";
 import Magnet from "@/components/Magnet";
 import MetalField from "@/components/MetalField";
 import Navbar from "@/components/Navbar";
+import Preloader from "@/components/Preloader";
 import { ContactButton } from "@/components/PortfolioButtons";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
@@ -155,6 +156,7 @@ function Pill({ children }: { children: ReactNode }) {
 export default function HomePage() {
   return (
     <div className="relative min-h-screen overflow-x-clip text-[color:var(--text)]">
+      <Preloader />
       <MetalField />
       <Navbar />
       <SectionNav items={navItems} />

@@ -70,7 +70,7 @@ export default function Preloader({ videoSrc = "/wave.mp4", poster = "/wave-post
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >
           {/* ambience — always visible, no JS gate */}
-          <div className="aurora pointer-events-none absolute h-[70vmin] w-[70vmin] rounded-full opacity-70" />
+          <div className="aurora pointer-events-none absolute h-[70vmin] w-[70vmin] rounded-full opacity-40" />
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.1]"
             style={{
@@ -85,6 +85,14 @@ export default function Preloader({ videoSrc = "/wave.mp4", poster = "/wave-post
           <div className="relative z-20 flex flex-col items-center">
             {/* stage: rings + waving avatar + progress ring (visible on first paint) */}
             <div className="relative grid h-[330px] w-[330px] place-items-center">
+              {/* plum pool matched to the clip's own background so the video box blends away */}
+              <div
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[470px] w-[370px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] blur-2xl"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 58% 54% at 50% 46%, rgb(74,58,73), rgb(47,39,56) 46%, rgba(40,34,50,0) 78%)",
+                }}
+              />
               <div className="spin-slow pointer-events-none absolute h-[300px] w-[300px] rounded-full border border-[#ff9ecb]/20" />
               <div
                 className="pointer-events-none absolute h-[244px] w-[244px] rounded-full border border-[#ff5fa8]/25"
@@ -105,8 +113,8 @@ export default function Preloader({ videoSrc = "/wave.mp4", poster = "/wave-post
                   preload="auto"
                   className="h-[252px] w-[180px] object-cover"
                   style={{
-                    WebkitMaskImage: "radial-gradient(130% 96% at 50% 44%, #000 66%, transparent 100%)",
-                    maskImage: "radial-gradient(130% 96% at 50% 44%, #000 66%, transparent 100%)",
+                    WebkitMaskImage: "radial-gradient(125% 92% at 50% 45%, #000 54%, transparent 100%)",
+                    maskImage: "radial-gradient(125% 92% at 50% 45%, #000 54%, transparent 100%)",
                   }}
                 />
               </div>

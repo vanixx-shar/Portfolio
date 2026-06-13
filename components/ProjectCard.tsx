@@ -80,7 +80,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: "radial-gradient(circle at var(--gx) var(--gy), rgba(182,0,168,0.24), transparent 42%)",
+            background: "radial-gradient(circle at var(--gx) var(--gy), rgba(255,95,168,0.26), transparent 42%)",
           }}
         />
 
@@ -98,7 +98,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </div>
           ) : null}
 
-          <p className="text-xs uppercase tracking-[0.18em] text-[#ff9ac3]/58">{project.year}</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-[#ff9ecb]/62">{project.year}</p>
           <h3 className="mt-3 text-2xl font-black uppercase leading-tight text-[#D7E2EA]">{project.title}</h3>
           <p className="mt-3 text-sm font-light leading-relaxed text-[#D7E2EA]/75">{project.subtitle}</p>
           <p className="mt-4 text-sm font-medium text-[#D7E2EA]">{project.highlight}</p>

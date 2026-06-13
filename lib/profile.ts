@@ -53,6 +53,11 @@ export type Profile = {
   timeline: TimelineItem[];
 };
 
+// Full-body 3D tour-guide avatar (transparent cutout, served from generation CDN).
+// Swap this for a local "/vanika-full-body.png" once the asset is downloaded into /public.
+export const avatar3dFull =
+  "https://d8j0ntlcm91z4.cloudfront.net/user_3EteKKNEmydtVrPndrsRpTE5A9h/hf_20260613_085154_cc974ba3-beae-45c3-b928-d97eccadc2b9.png";
+
 export const profile: Profile = {
   name: "Vanika Sharma",
   tagline: "Engineering Product Development | Global Merit Scholar",

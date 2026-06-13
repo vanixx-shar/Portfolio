@@ -5,7 +5,7 @@ import { profile } from "@/lib/profile";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-[#0C0C0C] px-5 py-20 text-[#D7E2EA] sm:px-8 md:px-10">
+    <footer id="footer" className="relative px-5 py-20 text-[#D7E2EA] sm:px-8 md:px-10">
       <div className="metal-card shine-surface mx-auto flex max-w-6xl flex-col gap-10 rounded-[2rem] p-6 sm:p-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>

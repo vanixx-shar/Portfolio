@@ -6,6 +6,11 @@
 :root {
   color-scheme: dark;
   background: #0c0c0c;
+  --metal-pink: #d75f92;
+  --metal-rose: #ff9ac3;
+  --metal-gold: #b38636;
+  --metal-ink: #141416;
+  --metal-line: rgba(255, 154, 195, 0.34);
 }
 
 * {
@@ -24,7 +29,19 @@ body {
 body {
   color: #d7e2ea;
   font-family: "Avenir Next Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  position: relative;
   text-rendering: optimizeLegibility;
+}
+
+body::before {
+  background:
+    linear-gradient(115deg, transparent 0 20%, rgba(215, 95, 146, 0.08) 21%, transparent 22% 58%, rgba(179, 134, 54, 0.06) 59%, transparent 60%),
+    linear-gradient(180deg, rgba(215, 226, 234, 0.03), transparent 34%, rgba(215, 95, 146, 0.03));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
 }
 
 body > div {
@@ -42,9 +59,116 @@ img {
 }
 
 .hero-heading {
-  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  background: linear-gradient(180deg, #7a808a 0%, #eef4f8 42%, var(--metal-pink) 72%, var(--metal-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.metal-card {
+  background:
+    linear-gradient(145deg, rgba(28, 28, 31, 0.98), rgba(12, 12, 13, 0.94)) padding-box,
+    linear-gradient(135deg, rgba(215, 226, 234, 0.34), rgba(215, 95, 146, 0.44), rgba(179, 134, 54, 0.28), rgba(215, 226, 234, 0.2)) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.035) inset,
+    0 1px 0 rgba(255, 255, 255, 0.12) inset;
+  isolation: isolate;
+  position: relative;
+}
+
+.metal-card::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 154, 195, 0.18), rgba(179, 134, 54, 0.14), transparent);
+  content: "";
+  height: 1px;
+  left: -30%;
+  opacity: 0.85;
+  pointer-events: none;
+  position: absolute;
+  right: -30%;
+  top: 0;
+  transform: translateX(-45%);
+  z-index: 0;
+}
+
+.metal-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.metal-card:hover {
+  border-color: rgba(255, 154, 195, 0.48);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.48),
+    0 0 34px rgba(215, 95, 146, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 1px 0 rgba(255, 255, 255, 0.16) inset;
+}
+
+.metal-lift {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.metal-lift:hover {
+  transform: translateY(-4px);
+}
+
+.metal-chip {
+  background:
+    linear-gradient(135deg, rgba(215, 95, 146, 0.12), rgba(179, 134, 54, 0.08), rgba(255, 255, 255, 0.035)) padding-box,
+    linear-gradient(135deg, rgba(255, 154, 195, 0.5), rgba(215, 226, 234, 0.12), rgba(179, 134, 54, 0.38)) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 0 18px rgba(215, 95, 146, 0.08);
+}
+
+.metal-button {
+  background:
+    linear-gradient(115deg, #f7f8fb 0%, #ffe3ef 32%, #d75f92 56%, #b38636 100%);
+  box-shadow:
+    0 16px 42px rgba(215, 95, 146, 0.24),
+    0 1px 0 rgba(255, 255, 255, 0.55) inset;
+  overflow: hidden;
+  position: relative;
+}
+
+.metal-button::before {
+  background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+  content: "";
+  inset: -40% auto -40% -70%;
+  pointer-events: none;
+  position: absolute;
+  transform: rotate(14deg);
+  width: 44%;
+}
+
+.metal-button:hover::before {
+  animation: button-sheen 720ms ease;
+}
+
+.pink-underline {
+  background: linear-gradient(90deg, transparent, var(--metal-pink), var(--metal-gold), transparent);
+  height: 1px;
+  opacity: 0.72;
+}
+
+.shine-surface {
+  overflow: hidden;
+  position: relative;
+}
+
+.shine-surface::after {
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 154, 195, 0.12), transparent 80%);
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-60%);
+  z-index: 2;
+}
+
+.shine-surface:hover::after {
+  animation: metal-sweep 900ms ease;
 }
 
 .fade-in {
@@ -136,6 +260,32 @@ img {
     color: #d7e2ea;
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes metal-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-65%);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(65%);
+  }
+}
+
+@keyframes button-sheen {
+  from {
+    left: -70%;
+  }
+
+  to {
+    left: 125%;
   }
 }
 

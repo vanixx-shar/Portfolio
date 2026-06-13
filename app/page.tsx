@@ -97,7 +97,7 @@ function SectionHeading({
 
 function MetricCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-[#D7E2EA]/12 bg-white/[0.035] p-4 shadow-[0_18px_60px_rgba(0,0,0,0.2)]">
+    <div className="metal-card metal-lift rounded-lg p-4">
       <p className="text-[11px] uppercase tracking-[0.24em] text-[#D7E2EA]/42">{label}</p>
       <p className="mt-2 text-xl font-semibold leading-snug text-[#F5F7FA]">{value}</p>
     </div>
@@ -106,7 +106,7 @@ function MetricCard({ label, value }: { label: string; value: string }) {
 
 function Pill({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex rounded-full border border-[#D7E2EA]/14 bg-black/30 px-3 py-1 text-xs font-medium text-[#D7E2EA]/74">
+    <span className="metal-chip inline-flex rounded-full px-3 py-1 text-xs font-medium text-[#F5F7FA]/82">
       {children}
     </span>
   );
@@ -124,8 +124,8 @@ function ContentCard({
   icon?: ReactNode;
 }) {
   return (
-    <article className="relative overflow-hidden rounded-lg border border-[#D7E2EA]/12 bg-[#111113] p-5 shadow-[0_22px_70px_rgba(0,0,0,0.34)] sm:p-7">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(215,226,234,0.1),transparent_34%)]" />
+    <article className="metal-card metal-lift shine-surface rounded-lg p-5 sm:p-7">
+      <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,154,195,0.6),rgba(179,134,54,0.45),transparent)]" />
       <div className="relative">
         {eyebrow || icon ? (
           <div className="mb-5 flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-[#D7E2EA]/42">
@@ -161,7 +161,7 @@ export default function HomePage() {
 
           <div className="relative z-20 mx-auto grid w-full max-w-[1500px] flex-1 gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <FadeIn delay={0.1} y={34} className="relative z-20">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#D7E2EA]/14 bg-black/35 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-[#D7E2EA]/70">
+              <div className="metal-chip mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-[#F5F7FA]/78">
                 <Sparkles className="h-3.5 w-3.5" />
                 {profile.tagline}
               </div>
@@ -178,15 +178,15 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="mt-6 flex max-w-[360px] items-start gap-2 rounded-lg border border-[#D7E2EA]/13 bg-white/[0.035] px-4 py-3 text-xs leading-snug text-[#D7E2EA]/76 sm:mt-7 sm:inline-flex sm:max-w-full sm:items-center sm:rounded-full sm:py-2 sm:text-sm">
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.65)]" />
+              <div className="metal-card mt-6 flex max-w-[360px] items-start gap-2 rounded-lg px-4 py-3 text-xs leading-snug text-[#D7E2EA]/82 sm:mt-7 sm:inline-flex sm:max-w-full sm:items-center sm:rounded-full sm:py-2 sm:text-sm">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff9ac3] shadow-[0_0_18px_rgba(255,154,195,0.72)]" />
                 <span>Open to internships, collaborations, and engineering product opportunities</span>
               </div>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="#projects"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F5F7FA] px-7 py-3 text-sm font-black uppercase tracking-wider text-[#0C0C0C] transition hover:scale-[1.02] sm:px-9"
+                  className="metal-button inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-black uppercase tracking-wider text-[#0C0C0C] transition hover:scale-[1.02] sm:px-9"
                   style={{ color: "#0C0C0C" }}
                 >
                   Explore Projects
@@ -194,7 +194,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href={profile.resumePath}
-                  className="inline-flex items-center justify-center rounded-full border border-[#D7E2EA]/14 bg-white/[0.05] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:bg-white/[0.09]"
+                  className="metal-chip inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:scale-[1.02]"
                 >
                   Resume
                 </Link>
@@ -202,7 +202,7 @@ export default function HomePage() {
                   href={profile.linkedinUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D7E2EA]/14 bg-white/[0.05] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:bg-white/[0.09]"
+                  className="metal-chip inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:scale-[1.02]"
                 >
                   LinkedIn
                   <Linkedin className="h-4 w-4" />
@@ -232,8 +232,8 @@ export default function HomePage() {
 
               <div className="relative z-20 mt-[-36px] hidden gap-3 sm:grid-cols-3 lg:mt-[-80px] lg:grid">
                 {topHighlights.map((item) => (
-                  <div key={item.title} className="rounded-lg border border-[#D7E2EA]/13 bg-[#111113]/86 p-4 backdrop-blur">
-                    <p className="text-[10px] uppercase tracking-[0.22em] text-[#D7E2EA]/40">{item.title}</p>
+                  <div key={item.title} className="metal-card rounded-lg p-4 backdrop-blur">
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-[#ff9ac3]/62">{item.title}</p>
                     <p className="mt-2 text-sm font-medium leading-relaxed text-[#F5F7FA]">{item.description}</p>
                   </div>
                 ))}
@@ -262,7 +262,7 @@ export default function HomePage() {
                   <ul className="space-y-3">
                     {profile.leadership.map((item) => (
                       <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B600A8]" />
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#d75f92] shadow-[0_0_12px_rgba(215,95,146,0.75)]" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -334,9 +334,9 @@ export default function HomePage() {
               {capabilityItems.map((item, index) => (
                 <article
                   key={item.name}
-                  className="rounded-lg border border-[#D7E2EA]/12 bg-white/[0.035] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.24)] lg:min-h-[300px]"
+                  className="metal-card metal-lift shine-surface rounded-lg p-5 lg:min-h-[300px]"
                 >
-                  <p className="text-5xl font-black leading-none text-[#D7E2EA]/18">{String(index + 1).padStart(2, "0")}</p>
+                  <p className="text-5xl font-black leading-none text-[#ff9ac3]/26">{String(index + 1).padStart(2, "0")}</p>
                   <h3 className="mt-8 text-xl font-black uppercase leading-tight text-[#F5F7FA]">{item.name}</h3>
                   <p className="mt-4 text-sm font-light leading-relaxed text-[#D7E2EA]/66">{item.description}</p>
                 </article>
@@ -365,7 +365,7 @@ export default function HomePage() {
                 <ContentCard title="Certifications" icon={<ShieldCheck className="h-4 w-4" />} eyebrow="Credentials">
                   <div className="grid gap-3 sm:grid-cols-2">
                     {profile.certifications.map((item) => (
-                      <div key={item.name} className="rounded-lg border border-[#D7E2EA]/10 bg-black/28 p-4">
+                      <div key={item.name} className="metal-card rounded-lg p-4">
                         <h4 className="font-black text-[#F5F7FA]">{item.name}</h4>
                         <p className="mt-1 text-[#D7E2EA]/72">{item.issuer}</p>
                         <p className="mt-1 text-sm text-[#D7E2EA]/42">
@@ -429,7 +429,7 @@ export default function HomePage() {
         </section>
 
         <section className="relative px-5 py-20 sm:px-8 md:px-10 md:py-28">
-          <div className="mx-auto max-w-[1500px] rounded-lg border border-[#D7E2EA]/12 bg-[linear-gradient(135deg,rgba(215,226,234,0.055),rgba(182,0,168,0.09),rgba(12,12,12,0.95))] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.38)] sm:p-10">
+          <div className="metal-card shine-surface mx-auto max-w-[1500px] rounded-lg p-6 sm:p-10">
             <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-end">
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.28em] text-[#D7E2EA]/45">Contact</p>
@@ -449,14 +449,14 @@ export default function HomePage() {
                   href={profile.linkedinUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D7E2EA]/14 bg-white/[0.05] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:bg-white/[0.09]"
+                  className="metal-chip inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:scale-[1.02]"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
                 </a>
                 <Link
                   href={profile.resumePath}
-                  className="inline-flex items-center justify-center rounded-full border border-[#D7E2EA]/14 bg-white/[0.05] px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:bg-white/[0.09]"
+                  className="metal-chip inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-bold uppercase tracking-wider text-[#F5F7FA] transition hover:scale-[1.02]"
                 >
                   Resume
                 </Link>

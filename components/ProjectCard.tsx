@@ -30,7 +30,7 @@ function cardImageFrameClass(image: ProjectImage): string {
         : "bg-white/[0.04]";
 
   return [
-    "relative mb-5 overflow-hidden rounded-[1.35rem] border border-[#D7E2EA]/15",
+    "shine-surface relative mb-5 overflow-hidden rounded-[1.35rem] border border-[#D7E2EA]/18",
     aspectClass,
     surfaceClass,
   ].join(" ");
@@ -75,7 +75,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           } as CSSProperties);
         }}
         style={style}
-        className="project-card-tilt group relative h-full overflow-hidden rounded-[2rem] border border-[#D7E2EA]/20 bg-[#0C0C0C] p-4 shadow-[0_18px_60px_rgba(0,0,0,0.4)] sm:p-5"
+        className="metal-card project-card-tilt group h-full overflow-hidden rounded-[2rem] p-4 sm:p-5"
       >
         <div
           className="pointer-events-none absolute inset-0"
@@ -98,7 +98,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </div>
           ) : null}
 
-          <p className="text-xs uppercase tracking-[0.18em] text-[#D7E2EA]/50">{project.year}</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-[#ff9ac3]/58">{project.year}</p>
           <h3 className="mt-3 text-2xl font-black uppercase leading-tight text-[#D7E2EA]">{project.title}</h3>
           <p className="mt-3 text-sm font-light leading-relaxed text-[#D7E2EA]/75">{project.subtitle}</p>
           <p className="mt-4 text-sm font-medium text-[#D7E2EA]">{project.highlight}</p>
@@ -107,7 +107,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-[#D7E2EA]/15 bg-white/[0.03] px-3 py-1 text-xs text-[#D7E2EA]/75"
+                className="metal-chip rounded-full px-3 py-1 text-xs text-[#F5F7FA]/78"
               >
                 {tag}
               </span>

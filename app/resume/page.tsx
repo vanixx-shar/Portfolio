@@ -25,8 +25,8 @@ export default function ResumePage() {
           Back Home
         </Link>
 
-        <section className="mt-8 rounded-[2rem] border border-[#D7E2EA]/20 bg-white/[0.03] p-7 sm:p-9">
-          <p className="inline-flex items-center gap-2 rounded-full border border-[#D7E2EA]/15 bg-[#0C0C0C] px-3 py-1 text-xs uppercase tracking-[0.16em] text-[#D7E2EA]/60">
+        <section className="metal-card shine-surface mt-8 rounded-[2rem] p-7 sm:p-9">
+          <p className="metal-chip inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs uppercase tracking-[0.16em] text-[#F5F7FA]/75">
             <FileText className="h-3.5 w-3.5" />
             Resume Access
           </p>
@@ -43,7 +43,8 @@ export default function ResumePage() {
               href={profile.resumeFilePath}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[#D7E2EA] px-6 py-3 text-sm font-medium uppercase tracking-widest text-[#D7E2EA] transition hover:bg-[#D7E2EA]/10"
+              className="metal-button inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-black uppercase tracking-widest text-[#0C0C0C] transition hover:scale-[1.02]"
+              style={{ color: "#0C0C0C" }}
             >
               Open Resume
               <ArrowUpRight className="h-4 w-4" />
@@ -51,7 +52,7 @@ export default function ResumePage() {
             <a
               href={profile.resumeFilePath}
               download
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[#D7E2EA] px-6 py-3 text-sm font-medium uppercase tracking-widest text-[#D7E2EA] transition hover:bg-[#D7E2EA]/10"
+              className="metal-chip inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium uppercase tracking-widest text-[#F5F7FA] transition hover:scale-[1.02]"
             >
               Download PDF
               <Download className="h-4 w-4" />

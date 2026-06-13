@@ -103,16 +103,29 @@ export const profile: Profile = {
   ],
   experiences: [
     {
-      role: "Robotics Engineer",
-      organization: "Griffin Labs",
+      role: "Robotics R&D Intern",
+      organization: "Lionsbot International (Griffin Labs)",
       type: "Internship",
-      period: "Oct 2025 - Present",
+      period: "Oct 2025 - Dec 2025",
       location: "Singapore",
       points: [
-        "Work on robot and humanoid development tasks in real engineering environments.",
-        "Contribute to prototyping and CAD-centered iteration cycles.",
+        "Refined SolidWorks and Fusion 360 skills to design and iterate robotic end-effectors and structural mounts.",
+        "Worked in a lean startup environment with iterative debugging and rapid physical prototyping.",
+        "Bridged lab simulation and real-world deployment by iterating robot hardware around complex terrain constraints.",
       ],
-      skills: ["Robotics", "Humanoids", "CAD"],
+      skills: ["Robotics", "Rapid Prototyping", "SolidWorks", "Fusion 360"],
+    },
+    {
+      role: "Undergraduate Researcher",
+      organization: "Undergraduate Research Opportunity Program, SUTD",
+      type: "Research",
+      period: "2025",
+      points: [
+        "Presented research on AI in computational education at the Kohli Conference.",
+        "Optimized automated grading scripts to identify unique student coding patterns in high-volume STEM cohorts.",
+        "Engineered a Python plagiarism-detection engine using structural and semantic code similarity algorithms.",
+      ],
+      skills: ["Python", "AI in Education", "Research", "Algorithms"],
     },
     {
       role: "Vice President",
@@ -174,6 +187,14 @@ export const profile: Profile = {
       ],
     },
     {
+      institution: "Shanghai Jiao Tong University",
+      program: "International academic program, engineering innovation and entrepreneurship",
+      period: "2025",
+      details: [
+        "International university experience focused on engineering innovation, entrepreneurship, and cross-cultural collaboration.",
+      ],
+    },
+    {
       institution: "Mahidol University",
       program: "Exchange Program, Innovation and Entrepreneurship",
       period: "Sep 2025",
@@ -198,7 +219,23 @@ export const profile: Profile = {
   skillGroups: [
     {
       name: "Engineering",
-      skills: ["Robotics", "Humanoids", "Computer-Aided Design (CAD)", "Engineering Project Management"],
+      skills: [
+        "Robotics",
+        "Humanoids",
+        "Fusion 360",
+        "SolidWorks",
+        "3D Parametric Modeling",
+        "Computer-Aided Design (CAD)",
+        "Engineering Project Management",
+      ],
+    },
+    {
+      name: "Electronics + Embedded",
+      skills: ["Arduino", "Sensors and Actuators", "Motor Control", "PCB Prototyping", "Rapid Prototyping"],
+    },
+    {
+      name: "Programming + AI",
+      skills: ["C/C++", "Python", "Control Systems", "Data Annotation", "Machine Learning Datasets"],
     },
     {
       name: "Leadership",
@@ -215,9 +252,19 @@ export const profile: Profile = {
   ],
   timeline: [
     {
-      period: "2025 - Present",
-      title: "Robotics Engineer Intern, Griffin Labs",
-      description: "Robot and humanoid engineering internship in Singapore.",
+      period: "2025",
+      title: "Robotics R&D Intern, Lionsbot International",
+      description: "Rapid prototyping and robot hardware iteration through Griffin Labs.",
+    },
+    {
+      period: "2025",
+      title: "UROP Research in AI Education",
+      description: "Python plagiarism-detection and automated grading research presented at Kohli Conference.",
+    },
+    {
+      period: "2025",
+      title: "Shanghai Jiao Tong University Program",
+      description: "International academic exposure across innovation, entrepreneurship, and cross-cultural collaboration.",
     },
     {
       period: "2025 - Present",

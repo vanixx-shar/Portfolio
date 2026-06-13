@@ -113,8 +113,8 @@ export default function Preloader({ videoSrc = "/wave.mp4", poster = "/wave-post
                   preload="auto"
                   className="h-[252px] w-[180px] object-cover"
                   style={{
-                    WebkitMaskImage: "radial-gradient(125% 92% at 50% 45%, #000 54%, transparent 100%)",
-                    maskImage: "radial-gradient(125% 92% at 50% 45%, #000 54%, transparent 100%)",
+                    WebkitMaskImage: "radial-gradient(ellipse 52% 55% at 50% 45%, #000 30%, rgba(0,0,0,0.55) 70%, transparent 100%)",
+                    maskImage: "radial-gradient(ellipse 52% 55% at 50% 45%, #000 30%, rgba(0,0,0,0.55) 70%, transparent 100%)",
                   }}
                 />
               </div>

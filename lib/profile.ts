@@ -73,9 +73,12 @@ export const profile: Profile = {
     "Focus: humanoid and assistive robotics, autonomy, CAD, engineering leadership.",
   ],
   about: [
-    "Driven by leadership, deep curiosity, and strong work ethic, I aim to excel in every responsibility I take on.",
-    "Leadership for me is responsibility: to inspire, support, and guide teams toward shared outcomes with clarity and consistency.",
-    "I am committed to continuous learning, disciplined execution, and meaningful impact through engineering and community building.",
+    "I'm an Engineering Product Development undergraduate at the Singapore University of Technology and Design (SUTD), where I joined as a Global Merit Scholar. My world sits right at the intersection of robotics, product design, and the people those systems are actually built for.",
+    "Most of my work is hands-on. During my R&D internship at Lionsbot's Griffin Labs I designed robotic end-effectors and structural mounts in SolidWorks and Fusion 360, iterating prototypes in a lean startup environment until they could survive real-world terrain. I'm drawn to humanoid and assistive robotics — machines that are meant to genuinely help someone, not just demo well.",
+    "I lead as much as I build. As Vice President of the IEEE SUTD Student Branch and President of the SUTD Makerspace, I care about creating spaces where students feel safe to break things, learn fast, and ship. Leadership, to me, is responsibility: to inspire, support, and guide a team toward a shared outcome with clarity and consistency.",
+    "I'm endlessly curious, and that curiosity travels. It's taken me into AI-in-education research through SUTD's UROP, a Python plagiarism-detection engine built on structural and semantic code similarity, international programs at Shanghai Jiao Tong University and Mahidol, and competitions from RoboSub in the USA to the Tan Kah Kee Young Inventor Awards.",
+    "Outside the lab I'm a certified yoga instructor and an Asian Yoga Sports referee. The discipline, balance, and patience that come with that practice carry straight into how I approach engineering — steady hands, clear head, long game.",
+    "What ties all of it together is a belief in disciplined execution and meaningful impact: building things that are technically sound and genuinely useful, and bringing people along for the ride while I do it.",
   ],
   highlights: [
     {

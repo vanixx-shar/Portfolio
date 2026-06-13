@@ -164,9 +164,9 @@ export default function HomePage() {
         {/* ───────────────────────── HERO ───────────────────────── */}
         <section
           id="top"
-          className="relative flex min-h-[100svh] items-center overflow-hidden px-[var(--shell)] pb-20 pt-28 sm:pt-32"
+          className="relative flex min-h-[94svh] items-center overflow-hidden px-[var(--shell)] pb-10 pt-28 sm:pt-32"
         >
-          <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="fade-in relative z-20" style={{ ["--fade-delay" as string]: "0.05s" }}>
               <div className="metal-chip mb-6 inline-flex items-center gap-2 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-[#f4f7fb]/85">
                 <Sparkles className="h-3.5 w-3.5 text-[#ff9ecb]" />
@@ -279,55 +279,75 @@ export default function HomePage() {
         </div>
 
         {/* ───────────────────────── ABOUT ───────────────────────── */}
-        <section id="about" className="relative px-[var(--shell)] py-24 md:py-32">
-          <div className="mx-auto max-w-[1180px]">
+        <section id="about" className="relative px-[var(--shell)] py-16 md:py-24">
+          <div className="mx-auto max-w-[1280px]">
             <SectionHeading
               eyebrow="About"
               title="Builder, leader, engineer"
-              subtitle="Leadership, curiosity, disciplined execution, and engineering work with practical impact."
+              subtitle="Leadership, curiosity, disciplined execution, and engineering work with practical, human impact."
             />
-            <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-              <Reveal direction="left">
-                <ContentCard title="About Vanika" icon={<Sparkles className="h-4 w-4 text-[#ff9ecb]" />} eyebrow="Profile">
-                  <div className="space-y-4">
-                    {profile.about.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
+
+            <Reveal direction="blur">
+              <ContentCard title="About Vanika" icon={<Sparkles className="h-4 w-4 text-[#ff9ecb]" />} eyebrow="The story">
+                <div className="gap-x-10 md:columns-2 [&>p]:mb-4 [&>p]:break-inside-avoid">
+                  {profile.about.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </ContentCard>
+            </Reveal>
+
+            <div className="mt-5 grid gap-5 lg:grid-cols-3">
+              <Reveal direction="up" delay={0.03}>
+                <ContentCard title="Leadership Track" icon={<Radar className="h-4 w-4 text-[#ff9ecb]" />} eyebrow="Current Scope">
+                  <ul className="space-y-3">
+                    {profile.leadership.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff5fa8] shadow-[0_0_12px_rgba(255,95,168,0.7)]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </ContentCard>
+              </Reveal>
+              <Reveal direction="up" delay={0.08}>
+                <ContentCard title="Recognition" icon={<Medal className="h-4 w-4 text-[#ff9ecb]" />} eyebrow="Highlights">
+                  <div className="flex flex-wrap gap-2">
+                    {profile.highlights.map((item) => (
+                      <Pill key={item.title}>
+                        {item.title} — {item.description}
+                      </Pill>
                     ))}
                   </div>
                 </ContentCard>
               </Reveal>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-                <Reveal direction="right" delay={0.05}>
-                  <ContentCard title="Leadership Track" icon={<Radar className="h-4 w-4 text-[#ff9ecb]" />} eyebrow="Current Scope">
-                    <ul className="space-y-3">
-                      {profile.leadership.map((item) => (
-                        <li key={item} className="flex gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff5fa8] shadow-[0_0_12px_rgba(255,95,168,0.7)]" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </ContentCard>
-                </Reveal>
-                <Reveal direction="right" delay={0.1}>
-                  <ContentCard title="Recognition" icon={<Medal className="h-4 w-4 text-[#ff9ecb]" />} eyebrow="Highlights">
-                    <div className="flex flex-wrap gap-2">
-                      {profile.highlights.map((item) => (
-                        <Pill key={item.title}>
-                          {item.title} — {item.description}
-                        </Pill>
-                      ))}
-                    </div>
-                  </ContentCard>
-                </Reveal>
-              </div>
+              <Reveal direction="up" delay={0.13}>
+                <ContentCard title="Quick Facts" icon={<Sparkles className="h-4 w-4 text-[#ff9ecb]" />} eyebrow="At a glance">
+                  <dl className="space-y-3">
+                    {[
+                      { k: "Based in", v: profile.location },
+                      { k: "Studying", v: "Engineering Product Development, SUTD" },
+                      { k: "Status", v: "Global Merit Scholar" },
+                      { k: "Focus", v: "Humanoid & assistive robotics, autonomy, CAD" },
+                      { k: "Also", v: "Certified yoga instructor & Asian Yoga Sports referee" },
+                    ].map((row) => (
+                      <div key={row.k} className="flex flex-col border-b border-[#ff9ecb]/10 pb-2.5 last:border-b-0 last:pb-0 sm:flex-row sm:gap-3">
+                        <dt className="w-28 shrink-0 text-[11px] font-bold uppercase tracking-[0.18em] text-[#ff9ecb]/80">
+                          {row.k}
+                        </dt>
+                        <dd className="text-sm text-[#f4f7fb]">{row.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </ContentCard>
+              </Reveal>
             </div>
           </div>
         </section>
 
         {/* ───────────────────────── SKILLS ───────────────────────── */}
-        <section id="skills" className="relative px-[var(--shell)] py-24 md:py-32">
-          <div className="mx-auto max-w-[1180px]">
+        <section id="skills" className="relative px-[var(--shell)] py-16 md:py-24">
+          <div className="mx-auto max-w-[1280px]">
             <SectionHeading
               eyebrow="Toolkit"
               title="Capability stack"
@@ -408,8 +428,8 @@ export default function HomePage() {
         </section>
 
         {/* ───────────────────────── EXPERIENCE ───────────────────────── */}
-        <section id="experience" className="relative px-[var(--shell)] py-24 md:py-32">
-          <div className="mx-auto max-w-[1180px]">
+        <section id="experience" className="relative px-[var(--shell)] py-16 md:py-24">
+          <div className="mx-auto max-w-[1280px]">
             <SectionHeading
               eyebrow="Experience"
               title="Roles in motion"
@@ -447,8 +467,8 @@ export default function HomePage() {
         </section>
 
         {/* ───────────────────────── PROJECTS ───────────────────────── */}
-        <section id="projects" className="relative px-[var(--shell)] py-24 md:py-32">
-          <div className="mx-auto max-w-[1180px]">
+        <section id="projects" className="relative px-[var(--shell)] py-16 md:py-24">
+          <div className="mx-auto max-w-[1280px]">
             <SectionHeading
               eyebrow="Featured Projects"
               title="Case studies"
@@ -474,8 +494,8 @@ export default function HomePage() {
         </section>
 
         {/* ───────────────────────── TIMELINE ───────────────────────── */}
-        <section id="timeline" className="relative px-[var(--shell)] py-24 md:py-32">
-          <div className="mx-auto max-w-[1180px]">
+        <section id="timeline" className="relative px-[var(--shell)] py-16 md:py-24">
+          <div className="mx-auto max-w-[1280px]">
             <SectionHeading
               eyebrow="Milestones"
               title="Recent milestones"
@@ -488,8 +508,8 @@ export default function HomePage() {
         </section>
 
         {/* ───────────────────────── CONTACT ───────────────────────── */}
-        <section id="contact" className="relative px-[var(--shell)] py-24 md:py-32">
-          <Reveal direction="scale" className="mx-auto max-w-[1180px]">
+        <section id="contact" className="relative px-[var(--shell)] py-16 md:py-24">
+          <Reveal direction="scale" className="mx-auto max-w-[1280px]">
             <div className="metal-card shine-surface relative overflow-hidden p-7 sm:p-12">
               <div className="aurora pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full opacity-40" />
               <div className="relative grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-end">

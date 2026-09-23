@@ -34,7 +34,7 @@ export const projects: Project[] = [
     problem:
       "Traditional static tactile maps are rigid and often outdated. Visually impaired diners lack a dynamic, real-time interface to navigate shifting stall layouts, identify available seating, or locate specific cuisines in busy food centers.",
     solution:
-      "Developed a dynamic tactile map kiosk that translates digital floor plans into physical textures, letting users feel the layout of a makan center through an intuitive, refreshable spatial guide.",
+      "Developed a dynamic tactile map kiosk that translates digital floor plans into physical textures, letting users feel the layout of a makan center through an intuitive, refreshable spatial guide. Engineered the human-machine interface (HMI) around a dynamic haptic array to make real-time layout data accessible through touch.",
     impact: [
       "Enhanced accessibility by shifting food centers from difficult-to-navigate spaces into more inclusive environments through high-fidelity tactile feedback",
       "Connected dynamic data streams, including stall closures and wet-floor warnings, directly into the physical user interface",
@@ -327,7 +327,7 @@ export const projects: Project[] = [
     problem:
       "Modern smartphone photography is dominated by computational over-processing, which can strip away the organic texture and nostalgic character of early-2000s sensors. Commercial digicams have also become expensive vintage items that lack modern connectivity, repairability, and customizability.",
     solution:
-      "Engineered a custom digital camera from the ground up by combining retro CCD/CMOS-inspired image character with modern embedded systems and a dedicated image sensor connected to a custom-programmed microcontroller.",
+      "Engineered a custom digital camera from the ground up by combining retro CCD/CMOS-inspired image character with modern embedded systems and a dedicated image sensor connected to a custom-programmed microcontroller. Independently owned the complete product cycle, from PCB design and embedded firmware to a custom 3D-printed enclosure.",
     impact: [
       "Demonstrated hardware-software integration across sensor interfacing, battery management, and PCB layout",
       "Used CAD modeling and 3D printing to create a tactile body balancing retro aesthetics with modern durability",
@@ -361,8 +361,9 @@ export const projects: Project[] = [
     problem:
       "Underwater robotics must handle unstable sensing and demanding mission execution.",
     solution:
-      "Contributed to team workflows across integration, readiness, and engineering iteration.",
+      "Contributed to team workflows across integration, readiness, and engineering iteration as a hardware member supervised by the SUTD Organisation of Autonomous Robotics. Managed the internal electronics layout to optimize thermal dissipation and minimize signal interference between high-current motors and sensitive IMUs.",
     impact: [
+      "Reduced overall vehicle chassis weight by 15% through generative design and lightweight composites, allowing for increased battery payload",
       "Built hands-on experience in complex competition robotics",
       "Strengthened systems thinking under operational pressure",
     ],

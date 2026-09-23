@@ -74,7 +74,7 @@ export const profile: Profile = {
   ],
   about: [
     "I'm an Engineering Product Development undergraduate at the Singapore University of Technology and Design (SUTD), where I joined as a Global Merit Scholar. My world sits right at the intersection of robotics, product design, and the people those systems are actually built for.",
-    "Most of my work is hands-on. During my R&D internship at Lionsbot's Griffin Labs I designed robotic end-effectors and structural mounts in SolidWorks and Fusion 360, iterating prototypes in a lean startup environment until they could survive real-world terrain. I'm drawn to humanoid and assistive robotics — machines that are meant to genuinely help someone, not just demo well.",
+    "Most of my work is hands-on. At BeeX, through the SGInnovate Deep Tech Talent Programme, I contribute to the mechatronic design and integration of an autonomous underwater vehicle. During my R&D internship at Lionsbot's Griffin Labs I designed robotic end-effectors and structural mounts in SolidWorks and Fusion 360, iterating prototypes in a lean startup environment until they could survive real-world terrain. I'm drawn to humanoid and assistive robotics — machines that are meant to genuinely help someone, not just demo well.",
     "I lead as much as I build. As Vice President of the IEEE SUTD Student Branch and President of the SUTD Makerspace, I care about creating spaces where students feel safe to break things, learn fast, and ship. Leadership, to me, is responsibility: to inspire, support, and guide a team toward a shared outcome with clarity and consistency.",
     "I'm endlessly curious, and that curiosity travels. It's taken me into AI-in-education research through SUTD's UROP, a Python plagiarism-detection engine built on structural and semantic code similarity, international programs at Shanghai Jiao Tong University and Mahidol, and competitions from RoboSub in the USA to the Tan Kah Kee Young Inventor Awards.",
     "Outside the lab I'm a certified yoga instructor and an Asian Yoga Sports referee. The discipline, balance, and patience that come with that practice carry straight into how I approach engineering — steady hands, clear head, long game.",
@@ -111,6 +111,18 @@ export const profile: Profile = {
   ],
   experiences: [
     {
+      role: "Mechatronics Intern",
+      organization: "BeeX — via SGInnovate Deep Tech Talent Programme",
+      type: "Internship",
+      period: "Aug 2026 - Dec 2026",
+      points: [
+        "Selected for a limited-intake deep-tech placement administered by SGInnovate, Singapore's government-backed deep-tech venture builder.",
+        "Contribute to the mechatronic design and integration of an autonomous underwater vehicle.",
+        "Detailed project scope and results are covered by a non-disclosure agreement; happy to discuss my contributions and technical approach at an NDA-appropriate level in an interview.",
+      ],
+      skills: ["Mechatronics", "Underwater Robotics", "Systems Integration"],
+    },
+    {
       role: "Robotics R&D Intern",
       organization: "Lionsbot International (Griffin Labs)",
       type: "Internship",
@@ -119,7 +131,7 @@ export const profile: Profile = {
       points: [
         "Refined SolidWorks and Fusion 360 skills to design and iterate robotic end-effectors and structural mounts.",
         "Worked in a lean startup environment with iterative debugging and rapid physical prototyping.",
-        "Bridged lab simulation and real-world deployment by iterating robot hardware around complex terrain constraints.",
+        "Bridged lab simulation and real-world deployment by iterating robot hardware around complex terrain constraints, directly influencing the final hardware architecture.",
       ],
       skills: ["Robotics", "Rapid Prototyping", "SolidWorks", "Fusion 360"],
     },
@@ -130,7 +142,7 @@ export const profile: Profile = {
       period: "2025",
       points: [
         "Presented research on AI in computational education at the Kohli Conference.",
-        "Optimized automated grading scripts to identify unique student coding patterns in high-volume STEM cohorts.",
+        "Optimized automated grading scripts to identify unique student coding patterns in high-volume STEM cohorts, helping educators distinguish collaborative learning from academic dishonesty.",
         "Engineered a Python plagiarism-detection engine using structural and semantic code similarity algorithms.",
       ],
       skills: ["Python", "AI in Education", "Research", "Algorithms"],
@@ -233,17 +245,31 @@ export const profile: Profile = {
         "Fusion 360",
         "SolidWorks",
         "3D Parametric Modeling",
+        "Assembly Design",
+        "Basic FEA",
         "Computer-Aided Design (CAD)",
         "Engineering Project Management",
+        "Problem Solving",
+        "Root-Cause Analysis",
       ],
     },
     {
       name: "Electronics + Embedded",
-      skills: ["Arduino", "Sensors and Actuators", "Motor Control", "PCB Prototyping", "Rapid Prototyping"],
+      skills: ["Arduino", "Arduino IDE", "Sensors and Actuators", "Motor Control", "PCB Prototyping", "Rapid Prototyping"],
     },
     {
       name: "Programming + AI",
-      skills: ["C/C++", "Python", "Control Systems", "Data Annotation", "Machine Learning Datasets"],
+      skills: [
+        "C/C++",
+        "Python",
+        "Control Systems",
+        "Kinematics Concepts",
+        "Data Annotation",
+        "Image/Video Labeling",
+        "Annotation QA",
+        "Following Labeling Guidelines",
+        "Machine Learning Datasets",
+      ],
     },
     {
       name: "Leadership",
@@ -255,10 +281,22 @@ export const profile: Profile = {
     },
     {
       name: "Communication",
-      skills: ["Advertising", "Public Speaking", "Interpersonal Skills"],
+      skills: [
+        "Advertising",
+        "Public Speaking",
+        "Interpersonal Skills",
+        "Technical Report Writing",
+        "Presenting Design Ideas",
+        "Cross-Disciplinary Teamwork",
+      ],
     },
   ],
   timeline: [
+    {
+      period: "2026",
+      title: "Mechatronics Intern, BeeX",
+      description: "Autonomous underwater vehicle design and integration through the SGInnovate Deep Tech Talent Programme.",
+    },
     {
       period: "2025",
       title: "Robotics R&D Intern, Lionsbot International",
